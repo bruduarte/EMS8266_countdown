@@ -9,11 +9,11 @@
 //database entry
 struct timetableEntry
 {
-    uint8_t     lineID;
-    uint8_t     hour;
-    uint8_t     min;      
-    std::string stopName; //name of the stop
-    uint8_t     walkTime; //time it takes from your location to the stop
+    char     lineID [100];
+    char     hour [100];
+    char     min [100];      
+    char     stopName [100]; //name of the stop
+    char     walkTime [100]; //time it takes from your location to the stop
 
 };
   const uint16_t size =  MAXSTOPS * MAXLINES * MAXTIMEPERLINE;
@@ -27,7 +27,8 @@ public:
     LocalDatabase();
     ~LocalDatabase();
     void loadTimetable(const char* filename);
-    void saveTimetable();
+    // void saveTimetable();
+    void printDatabase(const char* filename);
 };
 
 
