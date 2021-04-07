@@ -24,6 +24,7 @@ int timeOffset = 3600;
 
 // object to get the timestamp.  
 NTPClient timeClient(ntpUDP, timeOffset);
+LocalDatabase database;
 
 void setup()
 {
@@ -38,12 +39,13 @@ void setup()
   else
   {
     Serial.println("LittleFS Initialization...failed");
-      Serial.println("formating FS");
-      if(LittleFS.format()){
-        Serial.println("formated!!");
-      }else{
-        Serial.println("formated FAILED");
-      }
+      while(1);
+      // Serial.println("formating FS");
+      // if(LittleFS.format()){
+      //   Serial.println("formated!!");
+      // }else{
+      //   Serial.println("formated FAILED");
+      // }
   }
   
 
@@ -87,18 +89,18 @@ void setup()
   
   //Create New File And Write Data to It
   //w=Write Open file for writing
-  // File f = LittleFS.open(filename, "w");
+  File f = LittleFS.open(filename, "w");
   
-  // if (!f) {
-  //   Serial.println("file open failed");
-  // }
-  // else
-  // {
-  //     //Write data to file
-  //     Serial.println("Writing Data to File");
-  //     f.print("This is sample data which is written in file");
-  //     f.close();  //Close file
-  // }
+  if (!f) {
+    Serial.println("file open failed");
+  }
+  else
+  {
+      //Write data to file
+      Serial.println("Writing Data to File");
+      f.print("This is sample data which is written in file");
+      f.close();  //Close file
+  }
 
 
 
@@ -106,7 +108,7 @@ void setup()
 }
 
 void loop() {
-  LocalDatabase database;
+  
   //Always updating and priting the timeStamp
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
@@ -137,7 +139,7 @@ void loop() {
       Serial.println("File Closed");
   }
 
-  // database.printDatabase(fileTest);
+  database.printDatabase(fileTest);
 
   delay(1000);
 }
