@@ -3,11 +3,13 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include "LittleFS.h"
-
+#include "LocalDatabase.h"
 
 #define LED 2
 
 const char* filename = "/samplefile.txt";
+const char* fileTest = "/database.txt";
+
 
 // credentials for connection.
 
@@ -25,6 +27,9 @@ NTPClient timeClient(ntpUDP, timeOffset);
 
 void setup()
 {
+  //Initialize Serial Port with baud rate 9600.
+  Serial.begin(9600);
+
     //Initialize File System
   if(LittleFS.begin())
   {
@@ -33,11 +38,15 @@ void setup()
   else
   {
     Serial.println("LittleFS Initialization...failed");
+      Serial.println("formating FS");
+      if(LittleFS.format()){
+        Serial.println("formated!!");
+      }else{
+        Serial.println("formated FAILED");
+      }
   }
   
-  //Initialize Serial Port with baud rate 9600.
-  Serial.begin(9600);
-  Serial.println();
+
 
   //using LEDs just for debugging.
   pinMode(LED, OUTPUT);
@@ -78,18 +87,18 @@ void setup()
   
   //Create New File And Write Data to It
   //w=Write Open file for writing
-  File f = LittleFS.open(filename, "w");
+  // File f = LittleFS.open(filename, "w");
   
-  if (!f) {
-    Serial.println("file open failed");
-  }
-  else
-  {
-      //Write data to file
-      Serial.println("Writing Data to File");
-      f.print("This is sample data which is written in file");
-      f.close();  //Close file
-  }
+  // if (!f) {
+  //   Serial.println("file open failed");
+  // }
+  // else
+  // {
+  //     //Write data to file
+  //     Serial.println("Writing Data to File");
+  //     f.print("This is sample data which is written in file");
+  //     f.close();  //Close file
+  // }
 
 
 
@@ -97,6 +106,7 @@ void setup()
 }
 
 void loop() {
+  LocalDatabase database;
   //Always updating and priting the timeStamp
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
@@ -126,6 +136,8 @@ void loop() {
       f.close();  //Close file
       Serial.println("File Closed");
   }
+
+  // database.printDatabase(fileTest);
 
   delay(1000);
 }
