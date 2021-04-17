@@ -102,9 +102,9 @@ void setup()
       f.close();  //Close file
   }
 
+  database.loadTimetable(fileTest);
 
-
-
+  Serial.println("Loaded!");
 }
 
 void loop() {
@@ -139,7 +139,8 @@ void loop() {
       Serial.println("File Closed");
   }
 
-  database.printDatabase(fileTest);
+  //database.printDatabase(fileTest);
+  
 
   delay(1000);
 }

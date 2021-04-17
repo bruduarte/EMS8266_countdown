@@ -1,10 +1,15 @@
 /*This class deals with the database of the timtable of the public transportation*/
 
 #include <iostream>
+#include <string.h>
+#include <FS.h>
+#include <LittleFS.h>
 
 #define MAXSTOPS        5         //maximum number of stops
 #define MAXLINES        3         //maximum number of lines to work with
 #define MAXTIMEPERLINE  (60/5)*10 //maximum number of times the line stops at a station in a day, assuming every 5min.
+#define DBSIZE   MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
+
 
 //database entry
 struct timetableEntry
@@ -20,8 +25,8 @@ struct timetableEntry
 class LocalDatabase
 {
 private:
-    struct timetableEntry timetable[MAXSTOPS * MAXLINES * MAXTIMEPERLINE];
-
+    struct timetableEntry timetable[DBSIZE];
+    String  line;
 public:
     LocalDatabase();
     ~LocalDatabase();
