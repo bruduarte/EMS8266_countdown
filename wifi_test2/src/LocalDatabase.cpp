@@ -8,6 +8,9 @@ LocalDatabase::LocalDatabase(){}
 
 LocalDatabase::~LocalDatabase(){}
 
+timetableEntry* LocalDatabase::getLocalDatabase(){
+    return this->timetable;
+}
 
 void LocalDatabase::loadTimetable(const char* filename){
     // int curCnt = 0;

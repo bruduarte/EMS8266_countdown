@@ -1,3 +1,6 @@
+#ifndef LOCALDATABASE
+#define LOCALDATABASE
+
 /*This class deals with the database of the timtable of the public transportation*/
 
 #include <iostream>
@@ -8,11 +11,12 @@
 #define MAXSTOPS        5         //maximum number of stops
 #define MAXLINES        3         //maximum number of lines to work with
 #define MAXTIMEPERLINE  (60/5)*10 //maximum number of times the line stops at a station in a day, assuming every 5min.
-#define DBSIZE  5 //MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
-#define MY_DEBUG
+// #define DBSIZE  MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
+#define DBSIZE  100
+// #define MY_DEBUG
 
 //database entry
-struct timetableEntry
+typedef struct timetableEntry_type
 {
     char     lineID [4];
     int      hour;
@@ -20,17 +24,18 @@ struct timetableEntry
     char     stopName [10]; //name of the stop
     int      walkTime; //time it takes from your location to the stop
 
-};
+}timetableEntry;
 
 class LocalDatabase
 {
 private:
-    struct timetableEntry timetable[DBSIZE];
+    timetableEntry timetable[DBSIZE];
     String  line;
 public:
     LocalDatabase();
     ~LocalDatabase();
 
+    timetableEntry *getLocalDatabase();
     /*This function loads the DB from a csv file and stores the data into the array of struct*/
     void loadTimetable(const char* filename);
 
@@ -49,3 +54,4 @@ public:
 };
 
 
+#endif
