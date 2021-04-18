@@ -8,17 +8,17 @@
 #define MAXSTOPS        5         //maximum number of stops
 #define MAXLINES        3         //maximum number of lines to work with
 #define MAXTIMEPERLINE  (60/5)*10 //maximum number of times the line stops at a station in a day, assuming every 5min.
-#define DBSIZE   MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
-
+#define DBSIZE  5 //MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
+#define MY_DEBUG
 
 //database entry
 struct timetableEntry
 {
     char     lineID [4];
-    char     hour [2];
-    char     min [2];      
+    int      hour;
+    int      min;      
     char     stopName [10]; //name of the stop
-    char     walkTime [2]; //time it takes from your location to the stop
+    int      walkTime; //time it takes from your location to the stop
 
 };
 
@@ -30,9 +30,22 @@ private:
 public:
     LocalDatabase();
     ~LocalDatabase();
+
+    /*This function loads the DB from a csv file and stores the data into the array of struct*/
     void loadTimetable(const char* filename);
+
     // void saveTimetable();
-    void printDatabase(const char* filename);
+
+    /*This function receives a DB file and prints it to screen */
+    void printDBFile(const char* filename);
+
+    void printDatabase ();
+
+    /*function used in qsort -> sorts the db array*/
+    static int  compareElements(const void *a, const void *b);
+
+    /*Calls qsort in order sort the array*/
+    void sortDatabase();
 };
 
 

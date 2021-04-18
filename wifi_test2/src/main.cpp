@@ -1,3 +1,5 @@
+
+
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <NTPClient.h>
@@ -20,10 +22,11 @@ const char* password   = "a6Qmsbhnwrdk";
 WiFiUDP ntpUDP;
 
 // variable that identifies the timezone in ms (Budapest is at +1, in ms = +1*60*60)
-int timeOffset = 3600; 
+int timeOffset = 3600; //******* see how to get it from web*******
 
-// object to get the timestamp.  
+/*object to get the timestamp.*/
 NTPClient timeClient(ntpUDP, timeOffset);
+/*object to local database*/
 LocalDatabase database;
 
 void setup()
@@ -105,6 +108,11 @@ void setup()
   database.loadTimetable(fileTest);
 
   Serial.println("Loaded!");
+
+  database.sortDatabase();
+
+  database.printDatabase();
+  
 }
 
 void loop() {
@@ -139,7 +147,6 @@ void loop() {
       Serial.println("File Closed");
   }
 
-  //database.printDatabase(fileTest);
   
 
   delay(1000);
