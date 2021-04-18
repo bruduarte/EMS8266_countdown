@@ -6,6 +6,7 @@
 #include <WiFiUdp.h>
 #include "LittleFS.h"
 #include "LocalDatabase.h"
+#include "Countdown.h"
 
 #define LED 2
 
@@ -28,6 +29,8 @@ int timeOffset = 3600; //******* see how to get it from web*******
 NTPClient timeClient(ntpUDP, timeOffset);
 /*object to local database*/
 LocalDatabase database;
+/*object to countdown*/
+Countdown countdown;
 
 void setup()
 {
@@ -111,7 +114,12 @@ void setup()
 
   database.sortDatabase();
 
-  database.printDatabase();
+  // database.printDatabase();
+
+  
+  
+
+
   
 }
 
@@ -120,6 +128,7 @@ void loop() {
   //Always updating and priting the timeStamp
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
+  
 
   //Blinking LEDs for debugging
   digitalWrite(LED, HIGH);
@@ -147,7 +156,8 @@ void loop() {
       Serial.println("File Closed");
   }
 
-  
-
-  delay(1000);
+  Serial.println("Display countdoun!: ");
+  Serial.println();
+  countdown.displayCountdown(timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
+  Serial.println("CORRE!");
 }
