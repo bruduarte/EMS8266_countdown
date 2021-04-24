@@ -25,8 +25,8 @@ void LocalDatabase::loadTimetable(const char* filename){
         while(f.available() && entryNumber<DBSIZE){
             
             this->line = f.readStringUntil('\n');
-            Serial.println(this->line);
-            Serial.println(entryNumber);
+            /*Serial.println(this->line);
+            Serial.println(entryNumber);*/
             if (this->line == ""){
                 Serial.println("****EMPTY STRING!!!****");
                 break;
@@ -40,20 +40,21 @@ void LocalDatabase::loadTimetable(const char* filename){
             
             
             
-            //Filling first field
+            //Filling lineID field
             int fieldSize = strlen(field); // gets the size of the field
-            if (fieldSize > 4){ //limits the first field size
-                fieldSize = 4; 
+            if (fieldSize > 3){ //limits the first field size
+                fieldSize = 3; 
             }
             strncpy(timetable[entryNumber].lineID, field, fieldSize); // copies the first field
-            
+            field [fieldSize] = '\0';
+
             #ifdef MY_DEBUG
             Serial.println(timetable[entryNumber].lineID); // ****************************TESTE
             #endif
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
             
-            //Filling second field
+            //Filling hour field
             fieldSize = strlen(field);
             if (fieldSize >= 2){ //limits the first field size
                 fieldSize = 2;
@@ -69,7 +70,7 @@ void LocalDatabase::loadTimetable(const char* filename){
             
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
-            //Filling third field
+            //Filling min field
             fieldSize = strlen(field);
             if (fieldSize >= 2){ //limits the first field size
                 fieldSize = 2; 
@@ -84,12 +85,13 @@ void LocalDatabase::loadTimetable(const char* filename){
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
-            //Filling fourth field
+            //Filling stopName field
             fieldSize = strlen(field);
-            if (fieldSize > 10){ //limits the first field size
-                fieldSize = 10; 
+            if (fieldSize > 9){ //limits the first field size
+                fieldSize = 9; 
             }
             strncpy(timetable[entryNumber].stopName, field, fieldSize);
+            field[fieldSize] = '\0';
 
             #ifdef MY_DEBUG
             Serial.println(timetable[entryNumber].stopName); // ****************************TESTE
@@ -97,7 +99,7 @@ void LocalDatabase::loadTimetable(const char* filename){
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
-            //Filling sixth field
+            //Filling walkingTime field
             fieldSize = strlen(field);
             if (fieldSize >= 2){ //limits the first field size
                 fieldSize = 2;
@@ -163,9 +165,9 @@ int LocalDatabase::compareElements(const void *a, const void *b){
     timetableEntry* dois = (timetableEntry*)b;
     
   
-    if (((um->hour * 60 + um->min) - (dois->hour * 60 + dois->min)) < 0){ //'um' is smaller than 'dois' means transport 'um' passes earlier than 'dois' in the timetable.
+    if ((((um->hour * 60) + um->min - um->walkTime) - ((dois->hour * 60) + dois->min - dois->walkTime)) < 0){ //'um' is smaller than 'dois' means transport 'um' passes earlier than 'dois' in the timetable.
         return -1;
-    } else if (((um->hour * 60 + um->min ) - (dois->hour * 60 + dois->min)) > 0) { //'um' is bigger than 'dois' means transport 'um' passes later than 'dois' in the timetable.
+    } else if ((((um->hour * 60) + um->min - um->walkTime ) - ((dois->hour * 60) + dois->min - dois->walkTime)) > 0) { //'um' is bigger than 'dois' means transport 'um' passes later than 'dois' in the timetable.
        return 1;
     } else{
         return 0; //case both have same time.
