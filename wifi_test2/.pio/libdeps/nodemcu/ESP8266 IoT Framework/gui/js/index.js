@@ -23,7 +23,7 @@ if (Config.find(entry => entry.name === "language")) {
     loc = require("./lang/en.json");
 }
 
-let url = "http://192.168.1.54";
+let url = "http://192.168.0.46";
 if (process.env.NODE_ENV === "production") {url = window.location.origin;}
 
 if (process.env.NODE_ENV === "development") {require("preact/debug");}
@@ -63,7 +63,7 @@ function Root() {
             });
     }
 
-    const projectName = configData["projectName"] || Config.find(entry => entry.name === "projectName") ? Config.find(entry => entry.name === "projectName").value : "ESP8266";
+    const projectName = configData["projectName"] || Config.find(entry => entry.name === "projectName") ? Config.find(entry => entry.name === "projectName").value : "ESP8266 Countdown";
     const projectVersion = configData["projectVersion"] || Config.find(entry => entry.name === "projectVersion") ? Config.find(entry => entry.name === "projectVersion").value : "";
 
     return <><GlobalStyle />
@@ -76,10 +76,10 @@ function Root() {
                 <Hamburger onClick={() => setMenu(!menu)} />
                 <Menu className={menu ? "" : "menuHidden"}>
                     <li><NavLink onClick={() => setMenu(false)} exact to="/">{loc.titleWifi}</NavLink></li>
-                    <li><NavLink onClick={() => setMenu(false)} exact to="/dashboard">{loc.titleDash}</NavLink></li>
+                    {/* <li><NavLink onClick={() => setMenu(false)} exact to="/dashboard">{loc.titleDash}</NavLink></li> */}
                     <li><NavLink onClick={() => setMenu(false)} exact to="/config">{loc.titleConf}</NavLink></li>
                     <li><NavLink onClick={() => setMenu(false)} exact to="/files">{loc.titleFile}</NavLink></li>
-                    <li><NavLink onClick={() => setMenu(false)} exact to="/firmware">{loc.titleFw}</NavLink></li>
+                    {/* <li><NavLink onClick={() => setMenu(false)} exact to="/firmware">{loc.titleFw}</NavLink></li> */}
                 </Menu>
 
             </Header>
@@ -100,9 +100,9 @@ function Root() {
                             socket={socket}
                             requestData={() => {return displayData;}} />
                     </Route>
-                    <Route exact path="/firmware">
+                    {/* <Route exact path="/firmware">
                         <FirmwarePage API={url} />
-                    </Route>
+                    </Route> */}
                     <Route path="/">
                         <WifiPage API={url} />
                     </Route>

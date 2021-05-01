@@ -86,11 +86,11 @@ void setup()
       //   Serial.println("formated FAILED");
       // }
   }
-  //testing framework
+  //framework********************************************
   GUI.begin();
   configManager.begin();
   WiFiManager.begin(configManager.data.projectName);
-  timeSync.begin();
+  // timeSync.begin();
 
   //using LEDs just for debugging.
   pinMode(LED, OUTPUT);
@@ -165,7 +165,7 @@ void loop() {
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
 
-  //testing framework
+  //testing framework*********
   WiFiManager.loop();
   updater.loop();
 
