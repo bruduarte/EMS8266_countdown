@@ -8,6 +8,13 @@
 #include "LocalDatabase.h"
 #include "Countdown.h"
 
+#include "WiFiManager.h"
+#include "webServer.h"
+#include "updater.h"
+#include "fetch.h"
+#include "configManager.h"
+#include "timeSync.h"
+
 
 #define LED 2
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -31,7 +38,7 @@ const char* password   = "a6Qmsbhnwrdk";
 // object created to use UDP transmission in order to communicate with the NTP server.
 WiFiUDP ntpUDP;
 
-// variable that identifies the timezone in ms (Budapest is at +1, in ms = +1*60*60)
+// variable that identifies the timezone in ms (Budapest is at +0, in ms = +1*60*60)
 int timeOffset = 3600; //******* see how to get it from web*******
 
 /*object to get the timestamp.*/
@@ -79,8 +86,11 @@ void setup()
       //   Serial.println("formated FAILED");
       // }
   }
-  
-
+  //testing framework
+  GUI.begin();
+  configManager.begin();
+  WiFiManager.begin(configManager.data.projectName);
+  timeSync.begin();
 
   //using LEDs just for debugging.
   pinMode(LED, OUTPUT);
@@ -154,7 +164,10 @@ void loop() {
   //Always updating and priting the timeStamp
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
-  
+
+  //testing framework
+  WiFiManager.loop();
+  updater.loop();
 
   //Blinking LEDs for debugging
   digitalWrite(LED, HIGH);
