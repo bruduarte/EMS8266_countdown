@@ -1,6 +1,7 @@
 
 
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
@@ -39,14 +40,76 @@ const char* password   = "a6Qmsbhnwrdk";
 WiFiUDP ntpUDP;
 
 // variable that identifies the timezone in ms (Budapest is at +0, in ms = +1*60*60)
-int timeOffset = 3600; //******* see how to get it from web*******
 
 /*object to get the timestamp.*/
-NTPClient timeClient(ntpUDP, timeOffset);
+NTPClient timeClient(ntpUDP);
 /*object to local database*/
 LocalDatabase database;
 /*object to countdown*/
 Countdown countdown;
+StaticJsonDocument<400> doc;
+
+void setupTime()
+{
+  char url[100]; 
+  const char* apiResponse; //to save the response from http fetch
+
+  strcpy(url, "http://worldtimeapi.org/api/timezone/");
+
+  char* area = configManager.data.Area;
+
+  strcat(url, area);
+
+  char* city = configManager.data.City;
+  strcat(url, "/");
+  strcat(url, city);
+
+  Serial.println(url);
+  fetch.GET(url);
+  
+
+  apiResponse = fetch.readString().c_str();
+  Serial.println(apiResponse);
+  
+  fetch.clean();
+
+    // Deserialize the JSON document
+  DeserializationError error = deserializeJson(doc, apiResponse);
+
+  // Test if parsing succeeds.
+  if (error) {
+    Serial.print(F("deserializeJson() failed: "));
+    Serial.println(error.f_str());
+    return;
+  }
+
+  // Fetch values.
+   long rawOffset = doc["raw_offset"];
+   bool dst = doc["dst"]; 
+
+   if (dst){
+     rawOffset += 3600; 
+   } 
+
+  // int timeOffset = 3600; 
+  //Updating the timeStamp. 
+
+  timeClient.setTimeOffset(rawOffset);
+  bool ret = timeClient.forceUpdate();
+
+  //Verifying if the update worked.
+  if(ret){
+    Serial.println("Update... ok \n");
+    Serial.println(timeClient.getFormattedTime());
+  }
+  else {
+    Serial.println("Update... failed \n");
+  }
+
+}
+
+
+
 
 
 void setup()
@@ -115,18 +178,7 @@ void setup()
 
   Serial.println("Trying to get current time from NTP server.");
 
-  //Updating the timeStamp. 
-  bool ret = timeClient.forceUpdate();
-
-  //Verifying if the update worked.
-  if(ret){
-    Serial.println("Update... ok \n");
-    Serial.println(timeClient.getFormattedTime());
-  }
-  else {
-    Serial.println("Update... failed \n");
-  }
-
+  setupTime();
   
   
   //Create New File And Write Data to It
