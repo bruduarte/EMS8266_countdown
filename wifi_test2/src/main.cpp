@@ -27,7 +27,6 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-const char* filename = "/samplefile.txt";
 const char* fileTest = "/database.txt";
 bool flagTimeOk = false;
 bool flagFetchTimezone = false;
@@ -161,12 +160,7 @@ void setup()
   {
     Serial.println("LittleFS Initialization...failed");
       while(1);
-      // Serial.println("formating FS");
-      // if(LittleFS.format()){
-      //   Serial.println("formated!!");
-      // }else{
-      //   Serial.println("formated FAILED");
-      // }
+      
   }
   //framework********************************************
   GUI.begin();
@@ -195,25 +189,6 @@ void setup()
   timeClient.begin();
   Serial.println();
 
-  Serial.println("Trying to get current time from NTP server.");
-
-  
-  
-  //Create New File And Write Data to It
-  //w=Write Open file for writing
-  File f = LittleFS.open(filename, "w");
-  
-  if (!f) {
-    Serial.println("file open failed");
-  }
-  else
-  {
-      //Write data to file
-      Serial.println("Writing Data to File");
-      f.print("This is sample data which is written in file");
-      f.close();  //Close file
-  }
-
   database.loadTimetable(fileTest);
 
   Serial.println("Loaded!");
@@ -221,11 +196,6 @@ void setup()
   database.sortDatabase();
 
   //database.printDatabase();
-
-  
-  
-
-
   
 }
 
@@ -234,6 +204,7 @@ void loop() {
   {
     flagFetchTimezone = fecthTimeZone();
     if(!flagFetchTimezone) Serial.println("Could not fetch API data!");
+    delay(500);
     return;
   }
   
@@ -242,12 +213,13 @@ void loop() {
 
     flagTimeOk = setupTime();
     if(!flagTimeOk) Serial.println("Could not setup time!");
+    delay(500);
     return;
   }
 
   //Always updating and priting the timeStamp
   timeClient.update();
-  Serial.println(timeClient.getFormattedTime());
+  
 
   //testing framework*********
   WiFiManager.loop();
@@ -255,35 +227,14 @@ void loop() {
 
   //Blinking LEDs for debugging
   digitalWrite(LED, HIGH);
-  Serial.println("LED is on");
   delay(1000);
   digitalWrite(LED, LOW);
-  Serial.println("LED is off");
-
-  //Trying to read file data
-  File f = LittleFS.open(filename, "r");
   
-  if (!f) {
-    Serial.println("File open failed");
-  }
-  else
-  {
-      Serial.println("Reading Data from File:");
-      //Data from file
-      for(int i=0;i<f.size();i++) //Read upto complete file size
-      {
-        Serial.print((char)f.read());
-      }
-      Serial.println();
-      f.close();  //Close file
-      Serial.println("File Closed");
-  }
 
-  Serial.println("Display countdoun!: ");
   Serial.println();
   countdown.displayCountdown(display, timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
   countdown.serialDisplayCountdown(timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
-  Serial.println("CORRE!");
+  Serial.println();
 }
 
 

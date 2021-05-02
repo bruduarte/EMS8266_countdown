@@ -120,10 +120,9 @@ void LocalDatabase::loadTimetable(const char* filename){
             
 
         }
-        Serial.println("Closing file...");
+        
         f.close();
-        Serial.println("File closed!");
-
+        
 
     }   
 
