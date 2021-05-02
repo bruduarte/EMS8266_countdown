@@ -29,7 +29,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 const char* filename = "/samplefile.txt";
 const char* fileTest = "/database.txt";
-
+bool flagTimeOk = false;
 
 // credentials for connection.
 
@@ -42,17 +42,23 @@ WiFiUDP ntpUDP;
 // variable that identifies the timezone in ms (Budapest is at +0, in ms = +1*60*60)
 
 /*object to get the timestamp.*/
-NTPClient timeClient(ntpUDP);
+NTPClient timeClient(ntpUDP, 0);
 /*object to local database*/
 LocalDatabase database;
 /*object to countdown*/
 Countdown countdown;
-StaticJsonDocument<400> doc;
 
-void setupTime()
+StaticJsonDocument<400> doc;
+StaticJsonDocument<200> filter;
+DeserializationError error;
+
+bool setupTime()
 {
   char url[100]; 
+
   const char* apiResponse; //to save the response from http fetch
+  filter["dst"]= true;
+  filter["raw_offset"] = true;
 
   strcpy(url, "http://worldtimeapi.org/api/timezone/");
 
@@ -65,22 +71,25 @@ void setupTime()
   strcat(url, city);
 
   Serial.println(url);
-  fetch.GET(url);
+  int httpCode = fetch.GET(url);
   
-
+  if(httpCode != 200){
+    Serial.println(httpCode);
+    return false;
+  }
+  
   apiResponse = fetch.readString().c_str();
   Serial.println(apiResponse);
   
-  fetch.clean();
 
     // Deserialize the JSON document
-  DeserializationError error = deserializeJson(doc, apiResponse);
+  error = deserializeJson(doc, apiResponse, DeserializationOption::Filter(filter));
 
   // Test if parsing succeeds.
   if (error) {
     Serial.print(F("deserializeJson() failed: "));
     Serial.println(error.f_str());
-    return;
+    return false;
   }
 
   // Fetch values.
@@ -91,21 +100,23 @@ void setupTime()
      rawOffset += 3600; 
    } 
 
+  Serial.println(rawOffset, dst);
   // int timeOffset = 3600; 
+  
   //Updating the timeStamp. 
 
   timeClient.setTimeOffset(rawOffset);
   bool ret = timeClient.forceUpdate();
 
-  //Verifying if the update worked.
-  if(ret){
-    Serial.println("Update... ok \n");
-    Serial.println(timeClient.getFormattedTime());
+  if(!ret){
+    Serial.println("Time update failed!");
+    return false;
   }
-  else {
-    Serial.println("Update... failed \n");
-  }
-
+ 
+  Serial.println("Time update... ok \n");
+  Serial.println(timeClient.getFormattedTime());
+  fetch.clean();
+  return true;
 }
 
 
@@ -178,7 +189,6 @@ void setup()
 
   Serial.println("Trying to get current time from NTP server.");
 
-  setupTime();
   
   
   //Create New File And Write Data to It
@@ -214,6 +224,12 @@ void setup()
 void loop() {
   
   //Always updating and priting the timeStamp
+  if(!flagTimeOk){
+
+    flagTimeOk = setupTime();
+    if(!flagTimeOk) Serial.println("Could not setup time!");
+    return;
+  }
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
 
