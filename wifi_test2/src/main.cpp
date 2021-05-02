@@ -30,7 +30,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 const char* filename = "/samplefile.txt";
 const char* fileTest = "/database.txt";
 bool flagTimeOk = false;
-
+bool flagFetchTimezone = false;
+int timeOffset = 0;
 // credentials for connection.
 
 const char* ssid       = "UPC7472663";
@@ -52,7 +53,7 @@ StaticJsonDocument<400> doc;
 StaticJsonDocument<200> filter;
 DeserializationError error;
 
-bool setupTime()
+bool fecthTimeZone()
 {
   char url[100]; 
 
@@ -95,17 +96,24 @@ bool setupTime()
   // Fetch values.
    long rawOffset = doc["raw_offset"];
    bool dst = doc["dst"]; 
+   
+   timeOffset = rawOffset;
 
    if (dst){
-     rawOffset += 3600; 
+     timeOffset = rawOffset + 3600; 
    } 
 
-  Serial.println(rawOffset, dst);
+  Serial.println(rawOffset);
+
+}
+
+bool setupTime()
+{
   // int timeOffset = 3600; 
   
   //Updating the timeStamp. 
 
-  timeClient.setTimeOffset(rawOffset);
+  timeClient.setTimeOffset(timeOffset);
   bool ret = timeClient.forceUpdate();
 
   if(!ret){
@@ -222,14 +230,22 @@ void setup()
 }
 
 void loop() {
+  if(!flagFetchTimezone)
+  {
+    flagFetchTimezone = fecthTimeZone();
+    if(!flagFetchTimezone) Serial.println("Could not fetch API data!");
+    return;
+  }
   
-  //Always updating and priting the timeStamp
-  if(!flagTimeOk){
+  if(!flagTimeOk)
+  {
 
     flagTimeOk = setupTime();
     if(!flagTimeOk) Serial.println("Could not setup time!");
     return;
   }
+
+  //Always updating and priting the timeStamp
   timeClient.update();
   Serial.println(timeClient.getFormattedTime());
 
