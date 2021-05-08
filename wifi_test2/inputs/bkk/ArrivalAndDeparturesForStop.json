@@ -1,0 +1,304 @@
+
+  "version": 3,
+  "status": "OK",
+  "code": 200,
+  "text": "OK",
+  "currentTime": 1620418000378,
+  "data": {
+    "limitExceeded": false,
+    "entry": {
+      "stopId": "BKK_F02461",
+      "routeIds": [
+        "BKK_3560",
+        "BKK_3561",
+        "BKK_3590",
+        "BKK_3591",
+        "BKK_3592",
+        "BKK_3610"
+      ],
+      "alertIds": [],
+      "nearbyStopIds": [],
+      "stopTimes": [
+        {
+          "stopHeadsign" :  "Krisztina körút ► Móricz Zsigmond körtér M" ,
+          "arrivalTime": 1620418140,
+          "departureTime": 1620418200,
+          "predictedArrivalTime": 1620418139,
+          "predictedDepartureTime": 1620418200,
+          "tripId": "BKK_C2459963030",
+          "serviceDate": "20210507"
+        },
+        {
+          "stopHeadsign": "Márton Áron tér",
+          "departureTime": 1620418320,
+          "tripId": "BKK_C181007358",
+          "serviceDate": "20210507"
+        },
+        {
+          "stopHeadsign": "Alkotás utca ► Móricz Zsigmond körtér M",
+          "arrivalTime": 1620418740,
+          "departureTime": 1620418860,
+          "predictedArrivalTime": 1620418775,
+          "predictedDepartureTime": 1620418860,
+          "tripId": "BKK_C2459963037",
+          "serviceDate": "20210507"
+        },
+        {
+          "stopHeadsign": "Krisztina körút ► Móricz Zsigmond körtér M",
+          "arrivalTime": 1620419340,
+          "departureTime": 1620419400,
+          "predictedArrivalTime": 1620419340,
+          "predictedDepartureTime": 1620419400,
+          "tripId": "BKK_C2459963044",
+          "serviceDate": "20210507"
+        },
+        {
+          "stopHeadsign": "Márton Áron tér",
+          "departureTime": 1620419520,
+          "tripId": "BKK_C181007359",
+          "serviceDate": "20210507"
+        }
+      ]
+    },
+    "references": {
+      "agencies": {
+        "BKK": {
+          "id": "BKK",
+          "name": "BKK",
+          "url": "http://www.bkk.hu",
+          "timezone": "Europe/Budapest",
+          "lang": "hu",
+          "phone": "+36 1 3 255 255"
+        }
+      },
+      "routes": {
+        "BKK_3610": {
+          "id": "BKK_3610",
+          "shortName": "61",
+          "description": "Móricz Zs. körtér M | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "61",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "61",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3561": {
+          "id": "BKK_3561",
+          "shortName": "56A",
+          "description": "Móricz Zs. körtér M | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "56A",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "56A",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3560": {
+          "id": "BKK_3560",
+          "shortName": "56",
+          "description": "Városház tér | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "56",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "56",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3592": {
+          "id": "BKK_3592",
+          "shortName": "59B",
+          "description": "Márton Áron tér | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59B",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59B",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3591": {
+          "id": "BKK_3591",
+          "shortName": "59A",
+          "description": "Márton Áron tér | Széll Kálmán tér M",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59A",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59A",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3590": {
+          "id": "BKK_3590",
+          "shortName": "59",
+          "description": "Márton Áron tér | Szent János Kórház",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        }
+      },
+      "stops": {
+        "BKK_F02461": {
+          "id": "BKK_F02461",
+          "lat": 47.506611,
+          "lon": 19.02439,
+          "name": "Széll Kálmán tér M",
+          "code": "F02461",
+          "direction": "129",
+          "description": "6189",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3560",
+            "BKK_3561",
+            "BKK_3590",
+            "BKK_3591",
+            "BKK_3592",
+            "BKK_3610"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        }
+      },
+      "trips": {
+        "BKK_C2459963037": {
+          "id": "BKK_C2459963037",
+          "routeId": "BKK_3610",
+          "shapeId": "BKK_C2459963037",
+          "blockId": "C24599_3560_20_6",
+          "tripHeadsign": "Móricz Zsigmond körtér M",
+          "serviceId": "BKK_C24599APPKZ-0101",
+          "directionId": "0",
+          "bikesAllowed": true,
+          "wheelchairAccessible": false
+        },
+        "BKK_C181007359": {
+          "id": "BKK_C181007359",
+          "routeId": "BKK_3591",
+          "shapeId": "BKK_C181007359",
+          "blockId": "C18100_3590_5_32",
+          "tripHeadsign": "Márton Áron tér",
+          "serviceId": "BKK_C18100APPKZ-0071",
+          "directionId": "0",
+          "bikesAllowed": true,
+          "wheelchairAccessible": false
+        },
+        "BKK_C181007358": {
+          "id": "BKK_C181007358",
+          "routeId": "BKK_3591",
+          "shapeId": "BKK_C181007358",
+          "blockId": "C18100_3590_8_32",
+          "tripHeadsign" :  "Márton Áron tér" ,
+          "serviceId": "BKK_C18100APPKZ-0071",
+          "directionId": "0",
+          "bikesAllowed": true,
+          "wheelchairAccessible": false
+        },
+        "BKK_C2459963030": {
+          "id": "BKK_C2459963030",
+          "routeId": "BKK_3561",
+          "shapeId": "BKK_C2459963030",
+          "blockId": "C24599_3560_16_13",
+          "tripHeadsign" :  "Móricz Zsigmond körtér M" ,
+          "serviceId": "BKK_C24599APPKZ-0071",
+          "directionId": "0",
+          "bikesAllowed": true,
+          "wheelchairAccessible": false
+        },
+        "BKK_C2459963044": {
+          "id": "BKK_C2459963044",
+          "routeId": "BKK_3561",
+          "shapeId": "BKK_C2459963044",
+          "blockId": "C24599_3560_22_9",
+          "tripHeadsign" :  "Móricz Zsigmond körtér M" ,
+          "serviceId": "BKK_C24599APPKZ-0071",
+          "directionId": "0",
+          "bikesAllowed": true,
+          "wheelchairAccessible": false
+        }
+      },
+      "alerts": {}
+    },
+    "class": "entryWithReferences"
+  }
+}
