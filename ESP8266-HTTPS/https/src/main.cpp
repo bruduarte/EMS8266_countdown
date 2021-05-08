@@ -45,6 +45,23 @@ void loop() {
         fetch.clean();        
     }
 
+    const char* bkkReq = "https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json?key=apaiary-test&version=3&appVersion=apiary-1.0&includeReferences=true&stopId=BKK_F02461&onlyDepartures=true&limit=60&minutesBefore=2&minutesAfter=30";
+    ret = fetch.GET(bkkReq);
+
+    if(ret != HTTP_CODE_OK){
+        Serial.printf("GET error: %d\n", ret);
+    }else{
+        while (fetch.busy())
+        {
+            if (fetch.available())
+            {
+                Serial.write(fetch.read());
+            }
+        }
+
+        fetch.clean();        
+    }   
+
     delay(1000);
 
 }
