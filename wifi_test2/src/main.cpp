@@ -20,6 +20,8 @@
 #define LED 2
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
+#define DBFILE "schedule.txt"
+#define STOPSFILE "stops.txt"
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
@@ -27,7 +29,7 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-const char* fileTest = "/database.txt";
+// const char* fileTest = "/schedule.txt";
 bool flagTimeOk = false;
 bool flagFetchTimezone = false;
 int timeOffset = 0;
@@ -47,6 +49,9 @@ NTPClient timeClient(ntpUDP, 0);
 LocalDatabase database;
 /*object to countdown*/
 Countdown countdown;
+/*struct to keep the stops data*/
+stopsInfo* stops;
+
 
 StaticJsonDocument<400> doc;
 StaticJsonDocument<200> filter;
@@ -103,6 +108,7 @@ bool fecthTimeZone()
    } 
 
   Serial.println(rawOffset);
+  return true;
 
 }
 
@@ -144,7 +150,7 @@ void setup()
   delay(2000);
   display.clearDisplay();
 
-  display.setTextSize(1);
+  display.setTextSize(2);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
 
@@ -189,12 +195,13 @@ void setup()
   timeClient.begin();
   Serial.println();
 
-  database.loadTimetable(fileTest);
+  database.loadStopsInfo(STOPSFILE);
+  database.loadTimetable(DBFILE);
 
   Serial.println("Loaded!");
 
   database.sortDatabase();
-
+  stops = database.getLocalStopsInfo();
   //database.printDatabase();
   
 }
@@ -230,11 +237,22 @@ void loop() {
   delay(1000);
   digitalWrite(LED, LOW);
   
+  
+  Serial.println();
+  // countdown.displayCountdown(display, timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
+  // countdown.serialDisplayCountdown(timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
+  // countdown.serialDisplayPerStopCountdown(stops[0].stopID,6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
+  // countdown.displayCountdownPerStop(display, stops[0].stopID, 6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
 
+  for (int i = 0; i < MAXSTOPS; i++)
+  {
+    countdown.serialDisplayPerStopCountdown(stops[i].stopID,timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.displayCountdownPerStop(display, stops[i].stopID, timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
+    delay(5000);
+  }
+  
   Serial.println();
-  countdown.displayCountdown(display, timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
-  countdown.serialDisplayCountdown(timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
-  Serial.println();
+  
 }
 
 
