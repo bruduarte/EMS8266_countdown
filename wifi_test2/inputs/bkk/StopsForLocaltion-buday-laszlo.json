@@ -1,0 +1,2266 @@
+{
+  "version": 3,
+  "status": "OK",
+  "code": 200,
+  "text": "OK",
+  "currentTime": 1620417355969,
+  "data": {
+    "list": [
+      {
+        "id": "BKK_F02461",
+        "years": 47.506611,
+        "lon": 19.02439,
+        "name": "Széll Kálmán tér M",
+        "code": "F02461",
+        "direction": "129",
+        "description": "6189",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3560",
+          "BKK_3561",
+          "BKK_3590",
+          "BKK_3591",
+          "BKK_3592",
+          "BKK_3610"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02460",
+        "years": 47.506863,
+        "lon": 19.024178,
+        "name": "Széll Kálmán tér M",
+        "code": "F02460",
+        "direction": "-50",
+        "description": "6187",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3560",
+          "BKK_3561",
+          "BKK_3590",
+          "BKK_3592",
+          "BKK_3610"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02477",
+        "years": 47.507232,
+        "lon": 19.025186,
+        "name": "Széll Kálmán tér M",
+        "code": "F02477",
+        "direction": "79",
+        "description": "6221",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3040",
+          "BKK_3060",
+          "BKK_3170",
+          "BKK_3190"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02465",
+        "years": 47.507421,
+        "lon": 19.024722,
+        "name": "Széll Kálmán tér M",
+        "code": "F02465",
+        "direction": "110",
+        "description": "6197",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0161",
+          "BKK_0390",
+          "BKK_1160",
+          "BKK_9560",
+          "BKK_9600",
+          "BKK_9900"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_109989",
+        "years": 47.505733,
+        "lon": 19.024793,
+        "name": "Széll Kálmán tér M",
+        "code": "109989",
+        "direction": "16",
+        "description": "700659",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0210",
+          "BKK_0211",
+          "BKK_1020",
+          "BKK_1390",
+          "BKK_1400",
+          "BKK_1401"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02466",
+        "years": 47.507376,
+        "lon": 19.025598,
+        "name": "Széll Kálmán tér M",
+        "code": "F02466",
+        "direction": "98",
+        "description": "6199",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0220",
+          "BKK_0221",
+          "BKK_2220",
+          "BKK_9220",
+          "BKK_9560"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02464",
+        "years": 47.507403,
+        "lon": 19.024974,
+        "name": "Széll Kálmán tér M",
+        "code": "F02464",
+        "direction": "90",
+        "description": "6195",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_1280",
+          "BKK_1290",
+          "BKK_1550",
+          "BKK_1560",
+          "BKK_9160"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F00412",
+        "years": 47.507691,
+        "lon": 19.024629,
+        "name": "Széll Kálmán tér M",
+        "code": "F00412",
+        "direction": "-91",
+        "description": "2119",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0390",
+          "BKK_0910",
+          "BKK_1020",
+          "BKK_9220",
+          "BKK_9560"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_009174",
+        "years": 47.507673,
+        "lon": 19.024894,
+        "name": "Széll Kálmán tér M",
+        "code": "009174",
+        "direction": "-80",
+        "description": "510001",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_1390",
+          "BKK_1400",
+          "BKK_1401",
+          "BKK_9600",
+          "BKK_9900"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02476",
+        "years": 47.507358,
+        "lon": 19.024496,
+        "name": "Széll Kálmán tér M",
+        "code": "F02476",
+        "direction": "-82",
+        "description": "6219",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3170",
+          "BKK_3190"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02462",
+        "years": 47.506441,
+        "lon": 19.024775,
+        "name": "Széll Kálmán tér M",
+        "code": "F02462",
+        "direction": "-144",
+        "description": "6191",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3170",
+          "BKK_3410"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_036678",
+        "years": 47.50671,
+        "lon": 19.02524,
+        "name": "Széll Kálmán tér M",
+        "code": "036678",
+        "direction": "38",
+        "description": "556613",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "TRAM",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_3170",
+          "BKK_3410"
+        ],
+        "stopColorType": "TRAM",
+        "style": {
+          "colors": [
+            "FFD800"
+          ]
+        }
+      },
+      {
+        "id": "BKK_073037",
+        "years": 47.505964,
+        "lon": 19.0252,
+        "name": "Széll Kálmán tér M",
+        "code": "073037",
+        "direction": "-72",
+        "description": "633505",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0160",
+          "BKK_0161",
+          "BKK_1160",
+          "BKK_9160"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02481",
+        "years": 47.507533,
+        "lon": 19.026097,
+        "name": "Széll Kálmán tér",
+        "code": "F02481",
+        "direction": "45",
+        "description": "6229",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "SUBWAY",
+        "wheelchairBoarding": false,
+        "routeIds": [
+          "BKK_5200"
+        ],
+        "stopColorType": "M2",
+        "style": {
+          "colors": [
+            "E41F18"
+          ],
+          "type": "PRIORITY",
+          "image": "stop-icon-M2"
+        }
+      },
+      {
+        "id": "BKK_F02480",
+        "years": 47.506818,
+        "lon": 19.024895,
+        "name": "Széll Kálmán tér",
+        "code": "F02480",
+        "direction": "-137",
+        "description": "6227",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "SUBWAY",
+        "wheelchairBoarding": false,
+        "routeIds": [
+          "BKK_5200"
+        ],
+        "stopColorType": "M2",
+        "style": {
+          "colors": [
+            "E41F18"
+          ],
+          "type": "PRIORITY",
+          "image": "stop-icon-M2"
+        }
+      },
+      {
+        "id": "BKK_109990",
+        "years": 47.507755,
+        "lon": 19.027185,
+        "name": "Széll Kálmán tér M",
+        "code": "109990",
+        "direction": "38",
+        "description": "700661",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0210",
+          "BKK_0211"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3"
+          ]
+        }
+      },
+      {
+        "id": "BKK_008086",
+        "years": 47.507313,
+        "lon": 19.026381,
+        "name": "Széll Kálmán tér M",
+        "code": "008086",
+        "direction": "41",
+        "description": "507877",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_1160",
+          "BKK_9160"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_081565",
+        "years": 47.507691,
+        "lon": 19.02435,
+        "name": "Széll Kálmán tér M",
+        "code": "081565",
+        "direction": "-84",
+        "description": "643837",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_1490"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_070997",
+        "years": 47.507743,
+        "lon": 19.023301,
+        "name": "Széll Kálmán tér M",
+        "code": "070997",
+        "direction": "-82",
+        "description": "629465",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_MOZG"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_009730",
+        "years": 47.506881,
+        "lon": 19.023541,
+        "name": "Széll Kálmán tér M",
+        "code": "009730",
+        "direction": "-36",
+        "description": "511057",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_1160"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02473",
+        "years": 47.506647,
+        "lon": 19.023912,
+        "name": "Széll Kálmán tér M",
+        "code": "F02473",
+        "direction": "-54",
+        "description": "6213",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02470",
+        "years": 47.50644,
+        "lon": 19.024258,
+        "name": "Széll Kálmán tér M",
+        "code": "F02470",
+        "direction": "-46",
+        "description": "6207",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02469",
+        "years": 47.506512,
+        "lon": 19.023912,
+        "name": "Széll Kálmán tér M",
+        "code": "F02469",
+        "direction": "140",
+        "description": "6205",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F00422",
+        "years": 47.507475,
+        "lon": 19.023859,
+        "name": "Széll Kálmán tér M",
+        "code": "F00422",
+        "direction": "89",
+        "description": "2139",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_073099",
+        "years": 47.507795,
+        "lon": 19.022886,
+        "name": "Széll Kálmán tér M",
+        "code": "073099",
+        "direction": "-71",
+        "description": "633629",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "777777"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02333",
+        "years": 47.505973,
+        "lon": 19.023169,
+        "name": "Széll Kálmán tér M (Csaba utca)",
+        "code": "F02333",
+        "direction": "146",
+        "description": "5935",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0050",
+          "BKK_0210",
+          "BKK_0211",
+          "BKK_9560",
+          "BKK_9600",
+          "BKK_9900"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_F02332",
+        "years": 47.506728,
+        "lon": 19.022811,
+        "name": "Széll Kálmán tér M (Csaba utca)",
+        "code": "F02332",
+        "direction": "-27",
+        "description": "5933",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0050",
+          "BKK_9560",
+          "BKK_9600",
+          "BKK_9900"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      },
+      {
+        "id": "BKK_073137",
+        "years": 47.507107,
+        "lon": 19.027124,
+        "name": "Széll Kálmán tér M (Ostrom utca)",
+        "code": "073137",
+        "direction": "140",
+        "description": "633705",
+        "locationType": 0,
+        "parentStationId": "BKK_CS073099",
+        "type": "BUS",
+        "wheelchairBoarding": true,
+        "routeIds": [
+          "BKK_0160",
+          "BKK_0161",
+          "BKK_1160",
+          "BKK_9160"
+        ],
+        "stopColorType": "BUS",
+        "style": {
+          "colors": [
+            "009FE3",
+            "1E1E1E"
+          ]
+        }
+      }
+    ],
+    "outOfRange": false,
+    "limitExceeded": false,
+    "references": {
+      "agencies": {
+        "BKK": {
+          "id": "BKK",
+          "name": "BKK",
+          "url": "http://www.bkk.hu",
+          "timezone": "Europe/Budapest",
+          "lang": "hu",
+          "phone": "+36 1 3 255 255"
+        }
+      },
+      "routes": {
+        "BKK_9560": {
+          "id": "BKK_9560",
+          "shortName": "956",
+          "description": "Cool Valley | Pécel, Kun József Street",
+          "type": "BUS",
+          "color": "1E1E1E",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "956",
+          "bikesAllowed": false,
+          "style": {
+            "color": "1E1E1E",
+            "icon": {
+              "type": "BOX",
+              "text": "956",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus"
+            }
+          }
+        },
+        "BKK_9220": {
+          "id": "BKK_9220",
+          "shortName": "922",
+          "description": "Budakeszi, Dózsa Gy. tér | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "1E1E1E",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "922",
+          "bikesAllowed": false,
+          "style": {
+            "color": "1E1E1E",
+            "icon": {
+              "type": "BOX",
+              "text": "922",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus"
+            }
+          }
+        },
+        "BKK_9600": {
+          "id": "BKK_9600",
+          "shortName": "960",
+          "description": "B.megyer, Újmegyeri square | Móricz Zs. körtér M",
+          "type": "BUS",
+          "color": "1E1E1E",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "960",
+          "bikesAllowed": false,
+          "style": {
+            "color": "1E1E1E",
+            "icon": {
+              "type": "BOX",
+              "text": "960",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus"
+            }
+          }
+        },
+        "BKK_9900": {
+          "id": "BKK_9900",
+          "shortName": "990",
+          "description": "Rákoskeresztúr, city town | Normafa",
+          "type": "BUS",
+          "color": "1E1E1E",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "990",
+          "bikesAllowed": false,
+          "style": {
+            "color": "1E1E1E",
+            "icon": {
+              "type": "BOX",
+              "text": "990",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus"
+            }
+          }
+        },
+        "BKK_0211": {
+          "id": "BKK_0211",
+          "shortName": "21A",
+          "description": "Széll Kálmán tér M | Normafa",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "21A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "21A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_0210": {
+          "id": "BKK_0210",
+          "shortName": "21",
+          "description": "Széll Kálmán tér M | Csillebérc, KFKI",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "21",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "21",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_1020": {
+          "id": "BKK_1020",
+          "shortName": "102",
+          "description": "Szendrő utca | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "102",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "102",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3561": {
+          "id": "BKK_3561",
+          "shortName": "56A",
+          "description": "Móricz Zs. körtér M | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "56A",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "56A",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_1560": {
+          "id": "BKK_1560",
+          "shortName": "156",
+          "description": "Dániel út | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "156",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "156",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_5200": {
+          "id": "BKK_5200",
+          "shortName": "M2",
+          "description": "Örs vezér tere | Southern Railway Station",
+          "type": "SUBWAY",
+          "color": "E41F18",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "CIRCLE",
+          "iconDisplayText": "2",
+          "bikesAllowed": false,
+          "style": {
+            "color": "E41F18",
+            "stop": {
+              "type": "PRIORITY",
+              "image": "route-icon-M2"
+            },
+            "icon": {
+              "type": "CIRCLE",
+              "text": "2",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "subway"
+            }
+          }
+        },
+        "BKK_0050": {
+          "id": "BKK_0050",
+          "shortName": "5",
+          "description": "Rákospalota, Kossuth utca | Pasaréti tér",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "5",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "5",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3560": {
+          "id": "BKK_3560",
+          "shortName": "56",
+          "description": "City Hall Square | Cool Valley",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "56",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "56",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_MOZG": {
+          "id": "BKK_MOZG",
+          "shortName": "MOZG",
+          "description": "Special service | Special service",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "MOZG",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "MOZG",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_1280": {
+          "id": "BKK_1280",
+          "shortName": "128",
+          "description": "Regőczi István tér | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "128",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "128",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3040": {
+          "id": "BKK_3040",
+          "shortName": "4",
+          "description": "Újbuda Center M | Széll Kálmán tér M",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "4",
+          "bikesAllowed": false,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "4",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_1160": {
+          "id": "BKK_1160",
+          "shortName": "116",
+          "description": "Light Street Market | Decorative Square",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "116",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "116",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_0390": {
+          "id": "BKK_0390",
+          "shortName": "39",
+          "description": "Goldmark Károly utca | Batthyány tér M H",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "39",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "39",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3060": {
+          "id": "BKK_3060",
+          "shortName": "6",
+          "description": "Móricz Zs. körtér M | Széll Kálmán tér M",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "6",
+          "bikesAllowed": false,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "6",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_9160": {
+          "id": "BKK_9160",
+          "shortName": "916",
+          "description": "Uránia | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "1E1E1E",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "916",
+          "bikesAllowed": false,
+          "style": {
+            "color": "1E1E1E",
+            "icon": {
+              "type": "BOX",
+              "text": "916",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus"
+            }
+          }
+        },
+        "BKK_0910": {
+          "id": "BKK_0910",
+          "shortName": "91",
+          "description": "Széll Kálmán tér M | Nyugati railway station M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "91",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "91",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_1400": {
+          "id": "BKK_1400",
+          "shortName": "140",
+          "description": "Törökbálint, shopping center | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "140",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "140",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_1401": {
+          "id": "BKK_1401",
+          "shortName": "140A",
+          "description": "Budaörs housing estate | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "140A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "140A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3610": {
+          "id": "BKK_3610",
+          "shortName": "61",
+          "description": "Móricz Zs. körtér M | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "61",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "61",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_0220": {
+          "id": "BKK_0220",
+          "shortName": "22",
+          "description": "Budakeszi, Tesco store | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "22",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "22",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_1550": {
+          "id": "BKK_1550",
+          "shortName": "155",
+          "description": "Pheasant Square | Széll Kálmán Square M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "155",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "155",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3410": {
+          "id": "BKK_3410",
+          "shortName": "41",
+          "description": "Kamaraerdei Jr. Park | Bécsi út / Vörösvári út",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "41",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "41",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_0221": {
+          "id": "BKK_0221",
+          "shortName": "22A",
+          "description": "Budakeszi, Dózsa Gy. tér | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "22A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "22A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_0161": {
+          "id": "BKK_0161",
+          "shortName": "16A",
+          "description": "Széll Kálmán tér M | Dísz tér",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "16A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "16A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_2220": {
+          "id": "BKK_2220",
+          "shortName": "222",
+          "description": "Budakeszi, Conquest Walk | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "222",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "222",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_0160": {
+          "id": "BKK_0160",
+          "shortName": "16",
+          "description": "Széll Kálmán tér M | Deák Ferenc tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "16",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "16",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3592": {
+          "id": "BKK_3592",
+          "shortName": "59B",
+          "description": "Márton Áron tér | Hűvösvölgy",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59B",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59B",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_3591": {
+          "id": "BKK_3591",
+          "shortName": "59A",
+          "description": "Márton Áron tér | Széll Kálmán tér M",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59A",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59A",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_1390": {
+          "id": "BKK_1390",
+          "shortName": "139",
+          "description": "Széll Kálmán tér M | Gazdagréti tér",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "139",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "139",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3590": {
+          "id": "BKK_3590",
+          "shortName": "59",
+          "description": "Márton Áron tér | Szent János Hospital",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "59",
+          "bikesAllowed": true,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "59",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_1490": {
+          "id": "BKK_1490",
+          "shortName": "149",
+          "description": "Fenyves street | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "149",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "149",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3170": {
+          "id": "BKK_3170",
+          "shortName": "17",
+          "description": "Savoya Park | Vienna Road / Vörösvár Road",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "17",
+          "bikesAllowed": false,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "17",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        },
+        "BKK_1290": {
+          "id": "BKK_1290",
+          "shortName": "129",
+          "description": "St. Francis Hospital | Széll Kálmán tér M",
+          "type": "BUS",
+          "color": "009FE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "129",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009FE3",
+            "icon": {
+              "type": "BOX",
+              "text": "129",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus"
+            }
+          }
+        },
+        "BKK_3190": {
+          "id": "BKK_3190",
+          "shortName": "19",
+          "description": "Kelenföld railway station M | Bécsi út / Vörösvári út",
+          "type": "TRAM",
+          "color": "FFD800",
+          "textColor": "000000",
+          "agencyId": "BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "19",
+          "bikesAllowed": false,
+          "style": {
+            "color": "FFD800",
+            "icon": {
+              "type": "BOX",
+              "text": "19",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "tram"
+            }
+          }
+        }
+      },
+      "stops": {
+        "BKK_070997": {
+          "id": "BKK_070997",
+          "years": 47.507743,
+          "lon": 19.023301,
+          "name": "Széll Kálmán tér M",
+          "code": "070997",
+          "direction": "-82",
+          "description": "629465",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_MOZG"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        },
+        "BKK_081565": {
+          "id": "BKK_081565",
+          "years": 47.507691,
+          "lon": 19.02435,
+          "name": "Széll Kálmán tér M",
+          "code": "081565",
+          "direction": "-84",
+          "description": "643837",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_1490"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02470": {
+          "id": "BKK_F02470",
+          "years": 47.50644,
+          "lon": 19.024258,
+          "name": "Széll Kálmán tér M",
+          "code": "F02470",
+          "direction": "-46",
+          "description": "6207",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        },
+        "BKK_109990": {
+          "id": "BKK_109990",
+          "years": 47.507755,
+          "lon": 19.027185,
+          "name": "Széll Kálmán tér M",
+          "code": "109990",
+          "direction": "38",
+          "description": "700661",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0210",
+            "BKK_0211"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3"
+            ]
+          }
+        },
+        "BKK_036678": {
+          "id": "BKK_036678",
+          "years": 47.50671,
+          "lon": 19.02524,
+          "name": "Széll Kálmán tér M",
+          "code": "036678",
+          "direction": "38",
+          "description": "556613",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3170",
+            "BKK_3410"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_F02332": {
+          "id": "BKK_F02332",
+          "years": 47.506728,
+          "lon": 19.022811,
+          "name": "Széll Kálmán tér M (Csaba utca)",
+          "code": "F02332",
+          "direction": "-27",
+          "description": "5933",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0050",
+            "BKK_9560",
+            "BKK_9600",
+            "BKK_9900"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02473": {
+          "id": "BKK_F02473",
+          "years": 47.506647,
+          "lon": 19.023912,
+          "name": "Széll Kálmán tér M",
+          "code": "F02473",
+          "direction": "-54",
+          "description": "6213",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        },
+        "BKK_F02476": {
+          "id": "BKK_F02476",
+          "years": 47.507358,
+          "lon": 19.024496,
+          "name": "Széll Kálmán tér M",
+          "code": "F02476",
+          "direction": "-82",
+          "description": "6219",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3170",
+            "BKK_3190"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_F02333": {
+          "id": "BKK_F02333",
+          "years": 47.505973,
+          "lon": 19.023169,
+          "name": "Széll Kálmán tér M (Csaba utca)",
+          "code": "F02333",
+          "direction": "146",
+          "description": "5935",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0050",
+            "BKK_0210",
+            "BKK_0211",
+            "BKK_9560",
+            "BKK_9600",
+            "BKK_9900"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02477": {
+          "id": "BKK_F02477",
+          "years": 47.507232,
+          "lon": 19.025186,
+          "name": "Széll Kálmán tér M",
+          "code": "F02477",
+          "direction": "79",
+          "description": "6221",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3040",
+            "BKK_3060",
+            "BKK_3170",
+            "BKK_3190"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_F00412": {
+          "id": "BKK_F00412",
+          "years": 47.507691,
+          "lon": 19.024629,
+          "name": "Széll Kálmán tér M",
+          "code": "F00412",
+          "direction": "-91",
+          "description": "2119",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0390",
+            "BKK_0910",
+            "BKK_1020",
+            "BKK_9220",
+            "BKK_9560"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_073099": {
+          "id": "BKK_073099",
+          "years": 47.507795,
+          "lon": 19.022886,
+          "name": "Széll Kálmán tér M",
+          "code": "073099",
+          "direction": "-71",
+          "description": "633629",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        },
+        "BKK_073137": {
+          "id": "BKK_073137",
+          "years": 47.507107,
+          "lon": 19.027124,
+          "name": "Széll Kálmán tér M (Ostrom utca)",
+          "code": "073137",
+          "direction": "140",
+          "description": "633705",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0160",
+            "BKK_0161",
+            "BKK_1160",
+            "BKK_9160"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_073037": {
+          "id": "BKK_073037",
+          "years": 47.505964,
+          "lon": 19.0252,
+          "name": "Széll Kálmán tér M",
+          "code": "073037",
+          "direction": "-72",
+          "description": "633505",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0160",
+            "BKK_0161",
+            "BKK_1160",
+            "BKK_9160"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02481": {
+          "id": "BKK_F02481",
+          "years": 47.507533,
+          "lon": 19.026097,
+          "name": "Széll Kálmán tér",
+          "code": "F02481",
+          "direction": "45",
+          "description": "6229",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "SUBWAY",
+          "wheelchairBoarding": false,
+          "routeIds": [
+            "BKK_5200"
+          ],
+          "stopColorType": "M2",
+          "style": {
+            "colors": [
+              "E41F18"
+            ],
+            "type": "PRIORITY",
+            "image": "stop-icon-M2"
+          }
+        },
+        "BKK_F02460": {
+          "id": "BKK_F02460",
+          "years": 47.506863,
+          "lon": 19.024178,
+          "name": "Széll Kálmán tér M",
+          "code": "F02460",
+          "direction": "-50",
+          "description": "6187",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3560",
+            "BKK_3561",
+            "BKK_3590",
+            "BKK_3592",
+            "BKK_3610"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_F02480": {
+          "id": "BKK_F02480",
+          "years": 47.506818,
+          "lon": 19.024895,
+          "name": "Széll Kálmán tér",
+          "code": "F02480",
+          "direction": "-137",
+          "description": "6227",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "SUBWAY",
+          "wheelchairBoarding": false,
+          "routeIds": [
+            "BKK_5200"
+          ],
+          "stopColorType": "M2",
+          "style": {
+            "colors": [
+              "E41F18"
+            ],
+            "type": "PRIORITY",
+            "image": "stop-icon-M2"
+          }
+        },
+        "BKK_009730": {
+          "id": "BKK_009730",
+          "years": 47.506881,
+          "lon": 19.023541,
+          "name": "Széll Kálmán tér M",
+          "code": "009730",
+          "direction": "-36",
+          "description": "511057",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_1160"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3"
+            ]
+          }
+        },
+        "BKK_F02464": {
+          "id": "BKK_F02464",
+          "years": 47.507403,
+          "lon": 19.024974,
+          "name": "Széll Kálmán tér M",
+          "code": "F02464",
+          "direction": "90",
+          "description": "6195",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_1280",
+            "BKK_1290",
+            "BKK_1550",
+            "BKK_1560",
+            "BKK_9160"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02461": {
+          "id": "BKK_F02461",
+          "years": 47.506611,
+          "lon": 19.02439,
+          "name": "Széll Kálmán tér M",
+          "code": "F02461",
+          "direction": "129",
+          "description": "6189",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3560",
+            "BKK_3561",
+            "BKK_3590",
+            "BKK_3591",
+            "BKK_3592",
+            "BKK_3610"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_F02462": {
+          "id": "BKK_F02462",
+          "years": 47.506441,
+          "lon": 19.024775,
+          "name": "Széll Kálmán tér M",
+          "code": "F02462",
+          "direction": "-144",
+          "description": "6191",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "TRAM",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_3170",
+            "BKK_3410"
+          ],
+          "stopColorType": "TRAM",
+          "style": {
+            "colors": [
+              "FFD800"
+            ]
+          }
+        },
+        "BKK_008086": {
+          "id": "BKK_008086",
+          "years": 47.507313,
+          "lon": 19.026381,
+          "name": "Széll Kálmán tér M",
+          "code": "008086",
+          "direction": "41",
+          "description": "507877",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_1160",
+            "BKK_9160"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_009174": {
+          "id": "BKK_009174",
+          "years": 47.507673,
+          "lon": 19.024894,
+          "name": "Széll Kálmán tér M",
+          "code": "009174",
+          "direction": "-80",
+          "description": "510001",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_1390",
+            "BKK_1400",
+            "BKK_1401",
+            "BKK_9600",
+            "BKK_9900"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F00422": {
+          "id": "BKK_F00422",
+          "years": 47.507475,
+          "lon": 19.023859,
+          "name": "Széll Kálmán tér M",
+          "code": "F00422",
+          "direction": "89",
+          "description": "2139",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        },
+        "BKK_F02465": {
+          "id": "BKK_F02465",
+          "years": 47.507421,
+          "lon": 19.024722,
+          "name": "Széll Kálmán tér M",
+          "code": "F02465",
+          "direction": "110",
+          "description": "6197",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0161",
+            "BKK_0390",
+            "BKK_1160",
+            "BKK_9560",
+            "BKK_9600",
+            "BKK_9900"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_F02466": {
+          "id": "BKK_F02466",
+          "years": 47.507376,
+          "lon": 19.025598,
+          "name": "Széll Kálmán tér M",
+          "code": "F02466",
+          "direction": "98",
+          "description": "6199",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0220",
+            "BKK_0221",
+            "BKK_2220",
+            "BKK_9220",
+            "BKK_9560"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3",
+              "1E1E1E"
+            ]
+          }
+        },
+        "BKK_109989": {
+          "id": "BKK_109989",
+          "years": 47.505733,
+          "lon": 19.024793,
+          "name": "Széll Kálmán tér M",
+          "code": "109989",
+          "direction": "16",
+          "description": "700659",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0210",
+            "BKK_0211",
+            "BKK_1020",
+            "BKK_1390",
+            "BKK_1400",
+            "BKK_1401"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "009FE3"
+            ]
+          }
+        },
+        "BKK_F02469": {
+          "id": "BKK_F02469",
+          "years": 47.506512,
+          "lon": 19.023912,
+          "name": "Széll Kálmán tér M",
+          "code": "F02469",
+          "direction": "140",
+          "description": "6205",
+          "locationType": 0,
+          "parentStationId": "BKK_CS073099",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "777777"
+            ]
+          }
+        }
+      },
+      "trips": {},
+      "alerts": {}
+    },
+    "class": "listWithReferences"
+  }
+}
