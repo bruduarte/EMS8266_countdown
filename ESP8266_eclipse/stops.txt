@@ -1,0 +1,5 @@
+BKK_F00189,Margit híd - budai hídfő H,360
+BKK_069091,Margit híd - budai hídfő H,240
+BKK_F00198,Mechwart liget,420
+BKK_F00232,Margit körút,60
+BKK_069093,Bem József tér,540

@@ -13,12 +13,14 @@ using namespace std;
 
 #include "LocalDatabase.h"
 
-#define DBFILE "database.txt"
+#define DBFILE "schedule.txt"
+#define STOPSFILE "stops.txt"
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
 	LocalDatabase db;
+	db.loadStopsInfo(STOPSFILE);
 	db.loadTimetable(DBFILE);
 	db.sortDatabase();
 
