@@ -10,6 +10,8 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <WiFiClientSecure.h>
+#include <ESP8266HTTPClient.h>
 
 #define LED             2
 #define OK              0
@@ -114,11 +116,11 @@ void setup() {
     ret = setupFS();
     if(ret == NOK) while(1);
 
-    // ret = setupDisplay();
-    // if(ret == NOK) while(1);
+    ret = setupDisplay();
+    if(ret == NOK) while(1);
 
-    // ret = setupLED();
-    // if(ret == NOK) while(1);
+    ret = setupLED();
+    if(ret == NOK) while(1);
 
     ret = setupIOTFramework();
     if(ret == NOK) while(1);
@@ -133,12 +135,27 @@ void loop() {
     updater.loop();
     configManager.loop();
     
-    const char* google = "https://www.google.com";
-    ret = fetchHttps(google);
-    if(ret != OK){
-        Serial.printf("Fetch error");
-    }
+    // const char* google = "https://www.google.com";
+    // ret = fetchHttps(google);
+    // if(ret != OK){
+    //     Serial.printf("Fetch error");
+    // }
+
+    Serial.printf("Get insecure\n");
+    WiFiClientSecure client;
+    client.setInsecure(); //the magic line, use with caution
+    client.connect(bkkReq, 443);
+    
+    Serial.printf("Begin\n");
+    HTTPClient http;
+    http.begin(client, bkkReq);
+
+    String payload;
+    if (http.GET() == HTTP_CODE_OK){
+        Serial.printf("Payload\n");
+        Serial.printf(http.getString().c_str());
+    }else Serial.printf("Could not GET from bkk\n");
 
     delay(1000);
-    // toggleLED();
+    toggleLED();
 }
