@@ -15,42 +15,49 @@ timetableEntry* LocalDatabase::getLocalDatabase(){
 void LocalDatabase::loadTimetable(const char* filename){
     // int curCnt = 0;
     // timetableEntry entry;
+#ifdef _WIN32
+    FILE* f = fopen(filename, "r");
+#else
     File f = LittleFS.open(filename, "r");
+#endif
     int entryNumber = 0; //tracks the entries in the database
     
     if (!f) {
-      Serial.println("File open failed on read.");
+        debug_print("File open failed on read.");
     } 
     else { 
-        while(f.available() && entryNumber<DBSIZE){
-            
-            this->line = f.readStringUntil('\n');
-            /*Serial.println(this->line);
-            Serial.println(entryNumber);*/
-            if (this->line == ""){
-                Serial.println("****EMPTY STRING!!!****");
+        debug_print("File opened!\n");
+        char linechar[50];
+#ifdef _WIN32
+        while(f != NULL && !feof(f) && entryNumber<DBSIZE){
+            fgets(linechar, 50, f);
+            if(strlen(linechar) == 0){
+                debug_print("****EMPTY STRING!!!****");
                 break;
             }
-
-            char linechar[20];
-
+#else
+        while(f.available() && entryNumber<DBSIZE){
+            this->line = f.readStringUntil('\n');
+            /*debug_print(this->line);
+            debug_print(entryNumber);*/
+            if (this->line == ""){
+                debug_print("****EMPTY STRING!!!****");
+                break;
+            }
             strcpy(linechar,line.c_str()); //converting the String to char[]
-
+#endif
             char *field = strtok(linechar, DELIMITER);
-            
-            
             
             //Filling lineID field
             int fieldSize = strlen(field); // gets the size of the field
             if (fieldSize > 3){ //limits the first field size
                 fieldSize = 3; 
             }
-            strncpy(timetable[entryNumber].lineID, field, fieldSize); // copies the first field
             field [fieldSize] = '\0';
+            strncpy(timetable[entryNumber].lineID, field, fieldSize+1); // copies the first field
 
-            #ifdef MY_DEBUG
-            Serial.println(timetable[entryNumber].lineID); // ****************************TESTE
-            #endif
+
+            debug_print("%s ", timetable[entryNumber].lineID);
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
             
@@ -64,9 +71,7 @@ void LocalDatabase::loadTimetable(const char* filename){
             }
             
 
-            #ifdef MY_DEBUG
-            Serial.println(timetable[entryNumber].hour);// ****************************TESTE
-            #endif
+            debug_print("%d ", timetable[entryNumber].hour);
             
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
@@ -79,9 +84,7 @@ void LocalDatabase::loadTimetable(const char* filename){
                 timetable[entryNumber].min = (field[0]- '0');
             }
             
-            #ifdef MY_DEBUG
-            Serial.println(timetable[entryNumber].min); // ****************************TESTE
-            #endif
+            debug_print("%d ", timetable[entryNumber].min);
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
@@ -90,12 +93,10 @@ void LocalDatabase::loadTimetable(const char* filename){
             if (fieldSize > 9){ //limits the first field size
                 fieldSize = 9; 
             }
-            strncpy(timetable[entryNumber].stopName, field, fieldSize);
             field[fieldSize] = '\0';
+            strncpy(timetable[entryNumber].stopName, field, fieldSize+1);
 
-            #ifdef MY_DEBUG
-            Serial.println(timetable[entryNumber].stopName); // ****************************TESTE
-            #endif
+            debug_print("%s ", timetable[entryNumber].stopName);
 
             field = strtok(NULL, DELIMITER); //strtok saves its state!
 
@@ -110,9 +111,7 @@ void LocalDatabase::loadTimetable(const char* filename){
             }
         
 
-            #ifdef MY_DEBUG
-            Serial.println(timetable[entryNumber].walkTime); // ****************************TESTE
-            #endif
+            debug_print("%d\n", timetable[entryNumber].walkTime);
 
             
             entryNumber++;
@@ -120,8 +119,11 @@ void LocalDatabase::loadTimetable(const char* filename){
             
 
         }
-        
+#ifdef _WIN32
+        fclose(f);
+#else
         f.close();
+#endif
         
 
     }   
@@ -130,19 +132,35 @@ void LocalDatabase::loadTimetable(const char* filename){
 
 
 void LocalDatabase::printDBFile(const char* filename){
+#ifdef _WIN32
+    FILE* f = fopen(filename, "r");
+    if(f != NULL){
+#else
     File f = LittleFS.open(filename, "r");
-
     if(!f){
-        Serial.println("File open failed on read.");
+#endif
+        debug_print("File open failed on read.");
     }
     else{
-        Serial.println("Printing contents of the database:");
-        for(int i=0;i<f.size();i++) //Read upto complete file size
-        {
-        Serial.print((char)f.read());
+        debug_print("Printing contents of the database:");
+
+#ifdef _WIN32
+        char line[50];
+        while(fgets(line, 50, f) != NULL){
+            debug_print(line);
         }
-      Serial.println();
-      f.close(); 
+#else
+        for(unsigned int i=0;i<f.size();i++) //Read up to complete file size
+        {
+            debug_print("%c", (char)f.read());
+        }
+#endif
+      debug_print("");
+#ifdef _WIN32
+        fclose(f);
+#else
+        f.close();
+#endif
         
     }
 
@@ -151,7 +169,7 @@ void LocalDatabase::printDBFile(const char* filename){
 void LocalDatabase::printDatabase(){
     for(int i = 0; i < DBSIZE; i++){
         
-        Serial.printf("%s, %i, %i, %s, %i \n",timetable[i].lineID, timetable[i].hour,timetable[i].min,timetable[i].stopName,timetable[i].walkTime);
+        debug_print("%s, %i, %i, %s, %i \n",timetable[i].lineID, timetable[i].hour,timetable[i].min,timetable[i].stopName,timetable[i].walkTime);
 
     }
 

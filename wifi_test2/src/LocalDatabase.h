@@ -5,8 +5,17 @@
 
 #include <iostream>
 #include <string.h>
+#include "Util.h"
+
+#ifdef _WIN32
+    #include <string>
+    using namespace std;
+    #define String string
+
+#else
 #include <FS.h>
 #include <LittleFS.h>
+#endif
 
 #define MAXSTOPS        5         //maximum number of stops
 #define MAXLINES        3         //maximum number of lines to work with
@@ -21,7 +30,7 @@ typedef struct timetableEntry_type
     char     lineID [4];
     int      hour;
     int      min;      
-    char     stopName [10]; //name of the stop
+    char     stopName [20]; //name of the stop
     int      walkTime; //time it takes from your location to the stop
 
 }timetableEntry;
