@@ -19,6 +19,7 @@
 
 #define MAXSTOPS        5         //maximum number of stops
 #define MAXLINES        7         //maximum number of lines to work with
+#define MAXHOLIDAYS     13        //maximum number of holidays
 #define MAXTIMEPERLINE  (60/5)*10 //maximum number of times the line stops at a station in a day, assuming every 5min.
 // #define DBSIZE  MAXSTOPS*MAXLINES*MAXTIMEPERLINE // maximum size of the database!
 #define DBSIZE  225
@@ -42,11 +43,17 @@ typedef struct stopsInfo_type
 	int		walkTime;
 }stopsInfo;
 
+typedef struct holidays_type
+{
+    char dates[5];
+}holidays;
+
 class LocalDatabase
 {
 private:
     timetableEntry	timetable[DBSIZE];
-    stopsInfo		stopsInfo[MAXSTOPS];
+    stopsInfo		stopInfo[MAXSTOPS];
+    holidays        holiday[MAXHOLIDAYS];
     String			line;
 public:
     LocalDatabase();
@@ -54,7 +61,11 @@ public:
 
     timetableEntry *getLocalDatabase();
 
-    struct stopsInfo_type *getLocalStopsInfo();
+    stopsInfo *getLocalStopsInfo();
+
+    holidays *getLocaHolidays();
+
+    void loadHolidays(const char* holidaysFile);
 
     void loadStopsInfo(const char* stopsFile);
 

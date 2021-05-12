@@ -12,8 +12,58 @@ timetableEntry* LocalDatabase::getLocalDatabase(){
     return this->timetable;
 }
 
-struct stopsInfo_type* LocalDatabase::getLocalStopsInfo(){
-	return this->stopsInfo;
+stopsInfo* LocalDatabase::getLocalStopsInfo(){
+	return this->stopInfo;
+}
+
+holidays* LocalDatabase::getLocaHolidays(){
+    return this->holiday;
+}
+
+void LocalDatabase::loadHolidays(const char* holidaysFile){
+
+#ifdef _WIN32
+    FILE* f = fopen(holidaysFile, "r");
+#else
+    File f = LittleFS.open(holidaysFile, "r");
+#endif
+
+    int entryNumber = 0; //tracks the entries in the file
+
+    if (!f) {
+        debug_print("File open failed on read.");
+    }
+    else {
+        debug_print("File opened!\n");
+
+        char lineChar[5]; //to storage the line being read
+#ifdef _WIN32
+		while(f != NULL && !feof(f) && entryNumber<MAXHOLIDAYS){
+			fgets(lineChar, 5, f);
+			if(strlen(lineChar) == 0){
+				debug_print("****EMPTY STRING!!!****");
+				break;
+			}
+#else
+        while(f.available() && entryNumber<MAXHOLIDAYS){
+            this->line = f.readStringUntil('\n');
+            debug_print("%s ",this->line.c_str());
+            debug_print("%s ",entryNumber);
+            if (this->line == ""){
+                debug_print("****EMPTY STRING!!!****");
+                break;
+            }
+
+            strcpy(lineChar,line.c_str()); //converting the String to char[]
+#endif
+            int lineSize = strlen(lineChar);
+            lineChar [4] = '\0';
+            strncpy(holiday[entryNumber].dates, lineChar, lineSize+1); //copies the dates!
+
+
+            debug_print("%s ", holiday[entryNumber].dates);
+        }
+    }
 }
 
 void LocalDatabase::loadStopsInfo(const char* stopFile){
@@ -60,10 +110,10 @@ void LocalDatabase::loadStopsInfo(const char* stopFile){
 			fieldSize = 10;
 		}
 		field [fieldSize] = '\0';
-		strncpy(stopsInfo[entryNumber].stopID, field, fieldSize+1); // copies the first field
+		strncpy(stopInfo[entryNumber].stopID, field, fieldSize+1); // copies the first field
 
 
-		debug_print("%s ", stopsInfo[entryNumber].stopID);
+		debug_print("%s ", stopInfo[entryNumber].stopID);
 
 		field = strtok(NULL, DELIMITER); //strtok saves its state! taking next field of the line
 		//Filling stopName field
@@ -72,16 +122,16 @@ void LocalDatabase::loadStopsInfo(const char* stopFile){
 			fieldSize = 26;
 		}
 		field[fieldSize] = '\0';
-		strncpy(stopsInfo[entryNumber].stopName, field, fieldSize+1);
+		strncpy(stopInfo[entryNumber].stopName, field, fieldSize+1);
 
-		debug_print("%s ", stopsInfo[entryNumber].stopName);
+		debug_print("%s ", stopInfo[entryNumber].stopName);
 
 		field = strtok(NULL, DELIMITER); //strtok saves its state!
 
 		//Filling walkingTime field
-		stopsInfo[entryNumber].walkTime = atoi(field);
+		stopInfo[entryNumber].walkTime = atoi(field);
 
-		debug_print("%d\n", stopsInfo[entryNumber].walkTime);
+		debug_print("%d\n", stopInfo[entryNumber].walkTime);
 
 
 		entryNumber++;
@@ -99,10 +149,10 @@ int LocalDatabase::walkTimeForStop(char* stopID){
 
 	for(int i =0; i<MAXSTOPS; i++){
 
-		int ret = strcmp(this->stopsInfo[i].stopID, stopID);
+		int ret = strcmp(this->stopInfo[i].stopID, stopID);
 
 		if (ret == 0){
-			return this->stopsInfo[i].walkTime;
+			return this->stopInfo[i].walkTime;
 		}
 
 	}
