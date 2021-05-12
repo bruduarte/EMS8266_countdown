@@ -87,6 +87,8 @@ public:
     /*Calls qsort in order sort the array*/
     void sortDatabase();
 
+    int isItHoliday(int day, int month);
+    
 
 };
 

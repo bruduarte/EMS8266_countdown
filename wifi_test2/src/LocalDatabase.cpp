@@ -340,3 +340,22 @@ void LocalDatabase::sortDatabase(){
 
 
 }
+
+int LocalDatabase::isItHoliday(int day, int month){
+
+    char today[5] = {}; //saves date DDMM
+    snprintf(today, 3, "%02d", day);
+    snprintf(today+2, 3, "%02d", month);
+    today[4] = '\0';
+
+    for (int i = 0; i < MAXHOLIDAYS; i++) {
+        if(strcmp(today, holiday[i].dates) == 0){
+            debug_print("Holiday: %s\n", today);
+            return 1;
+        }
+                
+    }
+
+    return 0;
+
+}
