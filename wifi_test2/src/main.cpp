@@ -11,10 +11,11 @@
 
 #include "WiFiManager.h"
 #include "webServer.h"
-#include "updater.h"
+// #include "updater.h"
 #include "fetch.h"
 #include "configManager.h"
 #include "timeSync.h"
+#include <time.h>
 
 
 #define LED 2
@@ -22,6 +23,7 @@
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define DBFILE "schedule.txt"
 #define STOPSFILE "stops.txt"
+#define HOLIDAYSFILE "holidays.txt"
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
@@ -51,7 +53,9 @@ LocalDatabase database;
 Countdown countdown;
 /*struct to keep the stops data*/
 stopsInfo* stops;
-
+/*variable to get unix time*/
+time_t unixTime;
+struct tm ts;
 
 StaticJsonDocument<400> doc;
 StaticJsonDocument<200> filter;
@@ -197,6 +201,7 @@ void setup()
 
   database.loadStopsInfo(STOPSFILE);
   database.loadTimetable(DBFILE);
+  database.loadHolidays(HOLIDAYSFILE);
 
   Serial.println("Loaded!");
 
@@ -227,6 +232,12 @@ void loop() {
   //Always updating and priting the timeStamp
   timeClient.update();
   
+  unixTime = timeClient.getEpochTime();
+  ts = *localtime(&unixTime);
+
+ 
+
+
 
   //testing framework*********
   WiFiManager.loop();
@@ -246,10 +257,11 @@ void loop() {
 
   for (int i = 0; i < MAXSTOPS; i++)
   {
-    countdown.serialDisplayPerStopCountdown(stops[i].stopID,timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
-    countdown.displayCountdownPerStop(display, stops[i].stopID, timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.displayCountdownPerStop(display, stops[i].stopID, 6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
     delay(5000);
   }
+
   
   Serial.println();
   

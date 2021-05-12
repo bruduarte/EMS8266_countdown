@@ -189,7 +189,7 @@ void Countdown::displayCountdownPerStop(Adafruit_SSD1306 &display, char* stopID,
     }
     
 
-	display.printf("(%s) - %s \n\n", stopID, stopName);
+	display.printf("%s\n\n", stopName);
 	display.display();
 
 	for(int i = 0; i < DBSIZE; i++){
