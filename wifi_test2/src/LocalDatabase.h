@@ -55,13 +55,15 @@ private:
     stopsInfo		stopInfo[MAXSTOPS];
     holidays        holiday[MAXHOLIDAYS];
     String			line;
+    unsigned char            numStops;
 public:
     LocalDatabase();
     ~LocalDatabase();
 
     timetableEntry *getLocalDatabase();
-
     stopsInfo *getLocalStopsInfo();
+
+    unsigned char getNumStops();
 
     holidays *getLocaHolidays();
 

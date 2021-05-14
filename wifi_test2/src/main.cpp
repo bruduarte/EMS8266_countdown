@@ -262,7 +262,7 @@ void loop() {
   // countdown.serialDisplayPerStopCountdown(stops[0].stopID,6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
   // countdown.displayCountdownPerStop(display, stops[0].stopID, 6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
 
-  for (int i = 0; i < MAXSTOPS; i++)
+  for (int i = 0; i < database.getNumStops(); i++)
   {
     Serial.printf("%d - %s\t%s\n", i, timeClient.getFormattedTime().c_str(), WiFi.localIP().toString().c_str());
     countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
