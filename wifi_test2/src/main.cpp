@@ -136,7 +136,11 @@ bool setupTime()
 }
 
 
-
+void saveCallback() {
+    Serial.println("EEPROM saved");
+    flagFetchTimezone = false;
+    flagTimeOk = false;
+}
 
 
 void setup()
@@ -174,6 +178,7 @@ void setup()
   //framework********************************************
   GUI.begin();
   configManager.begin();
+  configManager.setConfigSaveCallback(saveCallback);
   WiFiManager.begin(configManager.data.projectName);
   // timeSync.begin();
 
@@ -208,6 +213,17 @@ void setup()
   
 }
 
+void printWaitingTime(){
+  display.clearDisplay();
+	display.setCursor(0,0);
+	display.setTextSize(1);
+	display.setTextColor(WHITE);
+	display.printf("Wait while we update the time to\n", configManager.data.City);
+  display.setTextSize(2);
+  display.printf("\n%s", configManager.data.City);
+	display.display();
+}
+
 void loop() {
   if(!flagFetchTimezone)
   {
@@ -237,7 +253,7 @@ void loop() {
 
   //testing framework*********
   WiFiManager.loop();
-
+  configManager.loop();
   
   
   Serial.println();
@@ -248,11 +264,15 @@ void loop() {
 
   for (int i = 0; i < MAXSTOPS; i++)
   {
+    Serial.printf("%d - %s\t%s\n", i, timeClient.getFormattedTime().c_str(), WiFi.localIP().toString().c_str());
     countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
     countdown.displayCountdownPerStop(display, stops[i].stopID, 6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
-    delay(5000);
+    delay(3000);
   }
 
+  if(!flagFetchTimezone && !flagTimeOk){
+    printWaitingTime();
+  }
   
   Serial.println();
   
