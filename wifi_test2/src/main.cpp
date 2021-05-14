@@ -30,6 +30,9 @@
 
 bool flagTimeOk = false;
 bool flagFetchTimezone = false;
+bool flagStopsLoaded = false;
+bool flagHolidaysLoaded = false;
+bool flagScheduleLoaded = false;
 int timeOffset = 0;
 int isHoliday = 0; 
 
@@ -151,7 +154,7 @@ void setup()
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;); // Don't proceed, loop forever
+    while(1); // Don't proceed, loop forever
   }
 
   delay(2000);
@@ -164,26 +167,24 @@ void setup()
   display.println ("Welcome!");
   display.display(); 
 
-    //Initialize File System
+  //Init File System
   if(LittleFS.begin())
   {
-    Serial.println("LittleFS Initialize....ok");
+    Serial.println("LittleFS init ok!");
   }
   else
   {
-    Serial.println("LittleFS Initialization...failed");
-      while(1);
-      
+    Serial.println("LittleFS init failed!");
+      while(1);      
   }
-  //framework********************************************
+  //Init framework
   GUI.begin();
   configManager.begin();
   configManager.setConfigSaveCallback(saveCallback);
   WiFiManager.begin(configManager.data.projectName);
   // timeSync.begin();
-
  
-  //Initialize WiFi connection.
+  //Init WiFi connection.
   WiFi.begin(ssid, password);
 
   Serial.print("Connecting");
@@ -199,18 +200,7 @@ void setup()
 
   //Initialize the NTP client.
   timeClient.begin();
-  Serial.println();
-
-  database.loadStopsInfo(STOPSFILE);
-  database.loadTimetable(DBFILE);
-  database.loadHolidays(HOLIDAYSFILE);
-
-  Serial.println("Loaded!");
-
-  database.sortDatabase();
-  stops = database.getLocalStopsInfo();
-  //database.printDatabase();
-  
+  Serial.println();  
 }
 
 void printWaitingTime(){
@@ -218,28 +208,71 @@ void printWaitingTime(){
 	display.setCursor(0,0);
 	display.setTextSize(1);
 	display.setTextColor(WHITE);
-	display.printf("Wait while we update the time to\n", configManager.data.City);
+	display.printf("Wait while we update the time to\n");
   display.setTextSize(2);
   display.printf("\n%s", configManager.data.City);
 	display.display();
 }
 
+void printConfigRequest(const char* str){
+  display.clearDisplay();
+	display.setCursor(0,0);
+	display.setTextSize(1);
+	display.setTextColor(WHITE);
+	display.printf("Please setup the\n");
+  display.setTextSize(2);
+  display.printf("\n%s", str);
+	display.display();
+}
+
 void loop() {
+  delay(500);
   if(!flagFetchTimezone)
   {
+    printWaitingTime();
     flagFetchTimezone = fecthTimeZone();
     if(!flagFetchTimezone) Serial.println("Could not fetch API data!");
-    delay(500);
     return;
   }
   
   if(!flagTimeOk)
   {
-
     flagTimeOk = setupTime();
     if(!flagTimeOk) Serial.println("Could not setup time!");
-    delay(500);
     return;
+  }
+  if(!flagStopsLoaded)
+  {
+    flagStopsLoaded = database.loadStopsInfo(STOPSFILE);
+    if(!flagStopsLoaded)
+    {
+      debug_print("Could not load %s file\n", STOPSFILE);
+      printConfigRequest(STOPSFILE);
+      return;
+    }
+  }
+  if(!flagScheduleLoaded)
+  {
+    flagScheduleLoaded = database.loadTimetable(DBFILE);
+    if(!flagScheduleLoaded)
+    {
+      debug_print("Could not load %s file\n", DBFILE);
+      printConfigRequest(DBFILE);
+      return;
+    }
+    database.sortDatabase();
+  }
+  if(!flagHolidaysLoaded)
+  {
+    flagHolidaysLoaded = database.loadHolidays(HOLIDAYSFILE);
+    if(!flagHolidaysLoaded)
+    {
+      debug_print("Could not load %s file\n", HOLIDAYSFILE);
+      printConfigRequest(HOLIDAYSFILE);
+      return;
+    }
+    stops = database.getLocalStopsInfo();
+    Serial.println("Database files loaded!");
   }
 
   //Always updating and priting the timeStamp
@@ -250,11 +283,9 @@ void loop() {
   
   isHoliday = database.isItHoliday(ts.tm_mday,ts.tm_mon+1);
 
-
-  //testing framework*********
+  //Framework loops
   WiFiManager.loop();
-  configManager.loop();
-  
+  configManager.loop();  
   
   Serial.println();
   // countdown.displayCountdown(display, timeClient.getFormattedTime(), timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase());
@@ -262,7 +293,7 @@ void loop() {
   // countdown.serialDisplayPerStopCountdown(stops[0].stopID,6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
   // countdown.displayCountdownPerStop(display, stops[0].stopID, 6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
 
-  for (int i = 0; i < database.getNumStops(); i++)
+  for (int i = 0; i < MAXSTOPS; i++)
   {
     Serial.printf("%d - %s\t%s\n", i, timeClient.getFormattedTime().c_str(), WiFi.localIP().toString().c_str());
     countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
@@ -270,12 +301,12 @@ void loop() {
     delay(3000);
   }
 
-  if(!flagFetchTimezone && !flagTimeOk){
+  if(!flagFetchTimezone && !flagTimeOk)
+  {
     printWaitingTime();
   }
   
-  Serial.println();
-  
+  Serial.println();  
 }
 
 

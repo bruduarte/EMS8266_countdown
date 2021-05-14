@@ -67,14 +67,14 @@ public:
 
     holidays *getLocaHolidays();
 
-    void loadHolidays(const char* holidaysFile);
+    bool loadHolidays(const char* holidaysFile);
 
-    void loadStopsInfo(const char* stopsFile);
+    bool loadStopsInfo(const char* stopsFile);
 
     int walkTimeForStop(char* stopID);
 
     /*This function loads the DB from a csv file and stores the data into the array of struct*/
-    void loadTimetable(const char* scheduleFile);
+    bool loadTimetable(const char* scheduleFile);
 
     // void saveTimetable();
 

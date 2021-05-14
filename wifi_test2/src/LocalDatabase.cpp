@@ -24,7 +24,7 @@ unsigned char LocalDatabase::getNumStops(){
     return this->numStops;
 }
 
-void LocalDatabase::loadHolidays(const char* holidaysFile){
+bool LocalDatabase::loadHolidays(const char* holidaysFile){
     char lineChar[10]; //to storage the line being read
 
 #ifdef _WIN32
@@ -37,6 +37,7 @@ void LocalDatabase::loadHolidays(const char* holidaysFile){
 
     if (!f) {
         debug_print("File open failed on read.");
+        return false;
     }
     else {
         debug_print("File opened!\n");
@@ -71,10 +72,11 @@ void LocalDatabase::loadHolidays(const char* holidaysFile){
 #else
         f.close();
 #endif
+        return true;
     }
 }
 
-void LocalDatabase::loadStopsInfo(const char* stopFile){
+bool LocalDatabase::loadStopsInfo(const char* stopFile){
 
 #ifdef _WIN32
     FILE* f = fopen(stopFile, "r");
@@ -86,6 +88,7 @@ void LocalDatabase::loadStopsInfo(const char* stopFile){
 
     if (!f) {
         debug_print("File open failed on read.");
+        return false;
     }
     else {
         debug_print("File opened!\n");
@@ -140,7 +143,6 @@ void LocalDatabase::loadStopsInfo(const char* stopFile){
 
             debug_print("%d\n", stopInfo[entryNumber].walkTime);
 
-
             entryNumber++;
 
 		}
@@ -150,6 +152,7 @@ void LocalDatabase::loadStopsInfo(const char* stopFile){
         f.close();
 #endif
         this->numStops = entryNumber;
+        return true;
 	}
 }
 
@@ -169,7 +172,7 @@ int LocalDatabase::walkTimeForStop(char* stopID){
 
 }
 
-void LocalDatabase::loadTimetable(const char* scheduleFile){
+bool LocalDatabase::loadTimetable(const char* scheduleFile){
     // int curCnt = 0;
     // timetableEntry entry;
 #ifdef _WIN32
@@ -181,8 +184,8 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
     
     if (!f) {
         debug_print("File open failed on read.");
-    } 
-    else { 
+        return false;
+    }else {
         debug_print("File opened!\n");
         char lineChar[50]; //to storage the line being read
 #ifdef _WIN32
@@ -268,10 +271,8 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
 #else
         f.close();
 #endif
-        
-
-    }   
-
+        return true;
+    }
 }
 
 
@@ -297,7 +298,7 @@ void LocalDatabase::printDBFile(const char* filename){
 #else
         for(unsigned int i=0;i<f.size();i++) //Read up to complete file size
         {
-            debug_print("%s", (char)f.read());
+            debug_print("%c", (char)f.read());
         }
 #endif
       debug_print(" ");
