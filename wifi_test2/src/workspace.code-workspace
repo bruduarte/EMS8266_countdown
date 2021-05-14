@@ -17,7 +17,8 @@
 			"string": "cpp",
 			"vector": "cpp",
 			"unordered_map": "cpp",
-			"regex": "cpp"
+			"regex": "cpp",
+			"*.tcc": "cpp"
 		}
 	}
 }

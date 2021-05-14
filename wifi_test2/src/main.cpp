@@ -11,37 +11,35 @@
 
 #include "WiFiManager.h"
 #include "webServer.h"
-#include "updater.h"
 #include "fetch.h"
 #include "configManager.h"
 #include "timeSync.h"
+#include <time.h>
 
 
-#define LED 2
+
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define DBFILE "schedule.txt"
 #define STOPSFILE "stops.txt"
+#define HOLIDAYSFILE "holidays.txt"
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-
-// const char* fileTest = "/schedule.txt";
 bool flagTimeOk = false;
 bool flagFetchTimezone = false;
 int timeOffset = 0;
-// credentials for connection.
+int isHoliday = 0; 
 
+
+// credentials for connection.
 const char* ssid       = "UPC7472663";
 const char* password   = "a6Qmsbhnwrdk";
 
-// object created to use UDP transmission in order to communicate with the NTP server.
+/*object created to use UDP transmission in order to communicate with the NTP server.*/
 WiFiUDP ntpUDP;
-
-// variable that identifies the timezone in ms (Budapest is at +0, in ms = +1*60*60)
 
 /*object to get the timestamp.*/
 NTPClient timeClient(ntpUDP, 0);
@@ -51,7 +49,12 @@ LocalDatabase database;
 Countdown countdown;
 /*struct to keep the stops data*/
 stopsInfo* stops;
+/*variable to get unix time*/
+time_t unixTime;
+struct tm ts;
 
+/*Display object*/
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 StaticJsonDocument<400> doc;
 StaticJsonDocument<200> filter;
@@ -174,9 +177,7 @@ void setup()
   WiFiManager.begin(configManager.data.projectName);
   // timeSync.begin();
 
-  //using LEDs just for debugging.
-  pinMode(LED, OUTPUT);
-
+ 
   //Initialize WiFi connection.
   WiFi.begin(ssid, password);
 
@@ -197,6 +198,7 @@ void setup()
 
   database.loadStopsInfo(STOPSFILE);
   database.loadTimetable(DBFILE);
+  database.loadHolidays(HOLIDAYSFILE);
 
   Serial.println("Loaded!");
 
@@ -227,15 +229,15 @@ void loop() {
   //Always updating and priting the timeStamp
   timeClient.update();
   
+  unixTime = timeClient.getEpochTime();
+  ts = *localtime(&unixTime);
+  
+  isHoliday = database.isItHoliday(ts.tm_mday,ts.tm_mon+1);
+
 
   //testing framework*********
   WiFiManager.loop();
-  updater.loop();
 
-  //Blinking LEDs for debugging
-  digitalWrite(LED, HIGH);
-  delay(1000);
-  digitalWrite(LED, LOW);
   
   
   Serial.println();
@@ -246,10 +248,11 @@ void loop() {
 
   for (int i = 0; i < MAXSTOPS; i++)
   {
-    countdown.serialDisplayPerStopCountdown(stops[i].stopID,timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
-    countdown.displayCountdownPerStop(display, stops[i].stopID, timeClient.getHours(),timeClient.getMinutes(),timeClient.getSeconds(), database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.displayCountdownPerStop(display, stops[i].stopID, 6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
     delay(5000);
   }
+
   
   Serial.println();
   

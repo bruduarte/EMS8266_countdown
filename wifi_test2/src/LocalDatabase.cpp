@@ -12,8 +12,62 @@ timetableEntry* LocalDatabase::getLocalDatabase(){
     return this->timetable;
 }
 
-struct stopsInfo_type* LocalDatabase::getLocalStopsInfo(){
+stopsInfo* LocalDatabase::getLocalStopsInfo(){
 	return this->stopInfo;
+}
+
+holidays* LocalDatabase::getLocaHolidays(){
+    return this->holiday;
+}
+
+void LocalDatabase::loadHolidays(const char* holidaysFile){
+    char lineChar[10]; //to storage the line being read
+
+#ifdef _WIN32
+    FILE* f = fopen(holidaysFile, "r");
+#else
+    File f = LittleFS.open(holidaysFile, "r");
+#endif
+
+    int entryNumber = 0; //tracks the entries in the file
+
+    if (!f) {
+        debug_print("File open failed on read.");
+    }
+    else {
+        debug_print("File opened!\n");
+
+#ifdef _WIN32
+		while(f != NULL && !feof(f) && entryNumber<MAXHOLIDAYS){
+			fgets(lineChar, 5, f);
+			if(strlen(lineChar) == 0){
+				debug_print("****EMPTY STRING!!!****");
+				break;
+			}
+#else
+        debug_print("Holidays:\n");
+        while(f.available() && entryNumber<MAXHOLIDAYS){
+            this->line = f.readStringUntil('\n');
+            // Serial.printf("%d: %s\n", entryNumber,this->line.c_str());
+            if (this->line == ""){
+                debug_print("****EMPTY STRING!!!****\n");
+                break;
+            }
+#endif
+            strncpy(lineChar,line.c_str(), 4); //converting the String to char[]
+            lineChar [4] = '\0';
+            // int lineSize = strlen(lineChar);
+            strncpy(holiday[entryNumber].dates, lineChar, 5); //copies the dates!
+
+            debug_print("%s\n", holiday[entryNumber].dates);
+            entryNumber++;
+        }
+#ifdef _WIN32
+        fclose(f);
+#else
+        f.close();
+#endif
+    }
 }
 
 void LocalDatabase::loadStopsInfo(const char* stopFile){
@@ -155,7 +209,7 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
             strncpy(timetable[entryNumber].routeID, field, fieldSize+1); // copies the first field
 
 
-            debug_print("%s ", timetable[entryNumber].routeID);
+            // debug_print("%s ", timetable[entryNumber].routeID);
 
             field = strtok(NULL, DELIMITER); //strtok saves its state! taking next field of the line
             
@@ -168,7 +222,7 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
             timetable[entryNumber].arriveTime = atoi(field); //converting string to int, saving second field
 
 
-            debug_print("%d ", timetable[entryNumber].arriveTime);
+            // debug_print("%d ", timetable[entryNumber].arriveTime);
             
             field = strtok(NULL, DELIMITER); //strtok saves its state! taking next field of the line
 
@@ -180,7 +234,7 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
             field[fieldSize] = '\0';
             strncpy(timetable[entryNumber].stopID, field, fieldSize+1); // copies the third field
 
-            debug_print("%s ", timetable[entryNumber].stopID);
+            // debug_print("%s ", timetable[entryNumber].stopID);
 
             field = strtok(NULL, DELIMITER); //strtok saves its state! taking next field of the line
 
@@ -196,7 +250,7 @@ void LocalDatabase::loadTimetable(const char* scheduleFile){
             //Filling walkingTime field
             timetable[entryNumber].walkTime = walkTimeForStop(this->timetable[entryNumber].stopID);
 
-            debug_print("%d\n", timetable[entryNumber].walkTime);
+            // debug_print("%d\n", timetable[entryNumber].walkTime);
 
             
             entryNumber++;
@@ -236,12 +290,12 @@ void LocalDatabase::printDBFile(const char* filename){
             debug_print(line);
         }
 #else
-        for(int i=0;i<f.size();i++) //Read up to complete file size
+        for(unsigned int i=0;i<f.size();i++) //Read up to complete file size
         {
             debug_print("%s", (char)f.read());
         }
 #endif
-      debug_print("");
+      debug_print(" ");
 #ifdef _WIN32
         fclose(f);
 #else
@@ -284,5 +338,24 @@ void LocalDatabase::sortDatabase(){
 
     qsort(timetable, DBSIZE, sizeof(timetableEntry),LocalDatabase::compareElements);
 
+
+}
+
+int LocalDatabase::isItHoliday(int day, int month){
+
+    char today[5] = {}; //saves date DDMM
+    snprintf(today, 3, "%02d", day);
+    snprintf(today+2, 3, "%02d", month);
+    today[4] = '\0';
+
+    for (int i = 0; i < MAXHOLIDAYS; i++) {
+        if(strcmp(today, holiday[i].dates) == 0){
+            debug_print("Holiday: %s\n", today);
+            return 1;
+        }
+                
+    }
+
+    return 0;
 
 }
