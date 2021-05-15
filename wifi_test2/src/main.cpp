@@ -13,7 +13,6 @@
 #include "webServer.h"
 #include "fetch.h"
 #include "configManager.h"
-#include "timeSync.h"
 #include <time.h>
 
 
@@ -159,7 +158,6 @@ void setup()
 
   delay(2000);
   display.clearDisplay();
-
   display.setTextSize(2);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
@@ -227,6 +225,7 @@ void printConfigRequest(const char* str){
 
 void loop() {
   delay(500);
+  /*Gets timezone info such as UTD offset and DST*/
   if(!flagFetchTimezone)
   {
     printWaitingTime();
@@ -235,12 +234,15 @@ void loop() {
     return;
   }
   
+  /*Based on previous values calls the function to get the time*/
   if(!flagTimeOk)
   {
     flagTimeOk = setupTime();
     if(!flagTimeOk) Serial.println("Could not setup time!");
     return;
   }
+
+  /*Loads stops information from file to db*/
   if(!flagStopsLoaded)
   {
     flagStopsLoaded = database.loadStopsInfo(STOPSFILE);
@@ -251,6 +253,7 @@ void loop() {
       return;
     }
   }
+  /*Loads schedule information from file to db, and sorts db*/
   if(!flagScheduleLoaded)
   {
     flagScheduleLoaded = database.loadTimetable(DBFILE);
@@ -262,6 +265,7 @@ void loop() {
     }
     database.sortDatabase();
   }
+  /*Loads holidays information from file to db, finishes db loading*/
   if(!flagHolidaysLoaded)
   {
     flagHolidaysLoaded = database.loadHolidays(HOLIDAYSFILE);
@@ -275,12 +279,12 @@ void loop() {
     Serial.println("Database files loaded!");
   }
 
-  //Always updating and priting the timeStamp
+  //Always updating the time
   timeClient.update();
   
+  /*Gets today's info to check if today is a holiday or not*/
   unixTime = timeClient.getEpochTime();
   ts = *localtime(&unixTime);
-  
   isHoliday = database.isItHoliday(ts.tm_mday,ts.tm_mon+1);
 
   //Framework loops
@@ -293,14 +297,16 @@ void loop() {
   // countdown.serialDisplayPerStopCountdown(stops[0].stopID,6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
   // countdown.displayCountdownPerStop(display, stops[0].stopID, 6,20,10, database.getLocalDatabase(), database.getLocalStopsInfo());
 
+  /*Calls functions to display countdown*/
   for (int i = 0; i < MAXSTOPS; i++)
   {
     Serial.printf("%d - %s\t%s\n", i, timeClient.getFormattedTime().c_str(), WiFi.localIP().toString().c_str());
-    countdown.serialDisplayPerStopCountdown(stops[i].stopID,6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
-    countdown.displayCountdownPerStop(display, stops[i].stopID, 6,20,10, isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.serialDisplayPerStopCountdown(stops[i].stopID, timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
+    countdown.displayCountdownPerStop(display, stops[i].stopID,  timeClient.getHours(), timeClient.getMinutes(),timeClient.getSeconds(), isHoliday,ts.tm_wday, database.getLocalDatabase(), database.getLocalStopsInfo());
     delay(3000);
   }
 
+  /*Keeps track of timezone and time*/
   if(!flagFetchTimezone && !flagTimeOk)
   {
     printWaitingTime();

@@ -18,7 +18,10 @@
 			"vector": "cpp",
 			"unordered_map": "cpp",
 			"regex": "cpp",
-			"*.tcc": "cpp"
+			"*.tcc": "cpp",
+			"random": "cpp",
+			"functional": "cpp",
+			"limits": "cpp"
 		}
 	}
 }

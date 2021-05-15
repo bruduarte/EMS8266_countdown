@@ -1,20 +1,6 @@
 #ifndef UTIL_H_
 #define UTIL_H_
 
-/**
- * @file Util.h
- *
- * "Write a short description of the file here."
- *
- * "Write the detailed description of the file here."
- *
- * $Author:  $
- * $Date:  $
- * $Revision:  $
- *
- * @copyright ThyssenKrupp Presta
- *
- */
 
 #include <stdio.h>
 /**** MACROS *************************************************************************************/

@@ -55,7 +55,7 @@ private:
     stopsInfo		stopInfo[MAXSTOPS];
     holidays        holiday[MAXHOLIDAYS];
     String			line;
-    unsigned char            numStops;
+    unsigned char   numStops;
 public:
     LocalDatabase();
     ~LocalDatabase();
